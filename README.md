@@ -1,65 +1,315 @@
-# VisEditBench
+<div align="center">
 
-Code for **VisEditBench: A Benchmark for Vector-Format Diagram Editing with Visual Instructions**.
+# VisEditBench: A Benchmark for Vector-Format Diagram Editing with Visual Instructions
 
-- Dataset: [tohoku-nlp/VisEditBench](https://huggingface.co/datasets/tohoku-nlp/VisEditBench)
-- Model registry: [configs/models.json](configs/models.json), 29 TikZ-editing models and 3 direct-image models
-- Four-condition prompts: [configs/prompts.json](configs/prompts.json)
-- Coverage and validation: [docs/coverage.md](docs/coverage.md), [docs/validation.md](docs/validation.md)
+[![Project Page](https://img.shields.io/badge/VisEditBench-Project%20Page-green?logo=googlechrome&logoColor=white)](https://viseditbench.github.io/)
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-VisEditBench-yellow)](https://huggingface.co/datasets/tohoku-nlp/VisEditBench)
+[![Code](https://img.shields.io/badge/GitHub-VisEditBench-black?logo=github&logoColor=white)](https://github.com/tohoku-nlp/VisEditBench)
 
-The repository supports archived-result analysis and new inference runs. Archived analysis reconstructs tables/figures from saved ratings and published values. New inference calls the selected providers or a user-managed GPU server. These are separate workflows; offline tests do not demonstrate exact regeneration of historical API/GPU outputs.
+</div>
 
-**Release status:** the reproduction supplement is prepared locally and must be added to Hugging Face by the dataset owner. Until then, gold-text comparisons and archived-result analysis require the local supplement. The original 50-output, five-repeat stability data and raw dataset-construction validation labels have not been located. Programs report these gaps and do not claim complete paper reproduction.
+This repository contains the official implementation of **VisEditBench: A Benchmark for Vector-Format Diagram Editing with Visual Instructions**.
 
-## Setup
+## Contents
 
-Use Python 3.11 or later and run commands from the repository root.
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Data Preparation](#data-preparation)
+- [Reproducing Experiments](#reproducing-experiments)
+- [Verbalization Experiments](#verbalization-experiments)
+- [Local and Direct Image Models](#local-and-direct-image-models)
+- [Archived Results and Figures](#archived-results-and-figures)
+- [Public Human Annotation Data](#public-human-annotation-data)
+- [Repository Structure](#repository-structure)
+- [Verification](#verification)
+- [Citation](#citation)
+
+## Overview
+
+**VisEditBench** evaluates models' ability to edit vector-format diagrams from **visual instructions**. Given an original diagram image, its TikZ source, and an annotated instruction image, the model produces edited TikZ code and a rendered diagram that reflect the requested changes.
+
+The benchmark contains **694 human-curated examples** spanning **five edit types** and **one to three edit operations** per instruction. The repository registers **32 models**: 29 TikZ-editing models and 3 models that directly generate edited images.
+
+| Edit type | Description |
+| --- | --- |
+| `ADD` | Add diagram elements |
+| `REMOVE` | Remove diagram elements |
+| `UPDATE` | Modify properties of existing elements |
+| `LAYOUT` | Change spatial arrangement |
+| `STRUCTURE` | Modify structural relationships and connections |
+
+Edited diagrams are evaluated along three image-level aspects:
+
+| Metric | Description |
+| --- | --- |
+| IA — Instruction Adherence | How faithfully the output follows the instruction; 1–5 |
+| CP — Content Preservation | How well content outside the requested edits is preserved; 1–5 |
+| DR — Diagram Readability | How clearly the edited diagram can be read; 1–5 |
+| FSR — Full-score Rate | Percentage of examples receiving IA = CP = DR = 5 |
+
+Code-level evaluation additionally reports IA, CP, Overall Edit Score (OES), and Compile Failure Rate (CFR). See the [model registry](configs/models.json), [prompt definitions](configs/prompts.json), and [reproduction coverage](docs/coverage.md) for configuration details.
+
+## Requirements
+
+- Python **3.11 or later**.
+- **TeX Live** with `pdflatex`, `pdfcrop`, and the required TikZ packages, plus **Poppler** (`pdftoppm`), for rendering generated TikZ.
+- Provider API keys for the selected API-based generation and evaluation models.
+- A compatible **NVIDIA GPU / CUDA environment** for local vLLM or Diffusers inference.
+- **Apptainer or Singularity** if using the supplied container definitions.
+- A Hugging Face token when authentication is required for dataset or model access.
+
+API-based experiments and archived-result analysis can run without a local GPU.
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/tohoku-nlp/VisEditBench.git
+cd VisEditBench
+```
+
+### 2. Install Python dependencies
 
 ```bash
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install -c constraints-tested.txt -e '.[analysis]'
+```
+
+`constraints-tested.txt` records the primary dependency versions used for offline verification. It is not a full transitive lockfile or a reconstruction of the historical paper environment.
+
+For Qwen direct-image editing, install the optional dependencies in a compatible GPU environment:
+
+```bash
+python -m pip install -e '.[diffusers]'
+```
+
+### 3. Configure API keys
+
+```bash
 cp .env.example .env
 ```
 
-For inference, fill the necessary `GOOGLE_API_KEY`, `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, or `OPENROUTER_API_KEY` in this repository's `.env`. Local vLLM authentication can use `VLLM_API_KEY`. Offline preparation and archived analysis do not need credentials.
+Set the keys needed for the providers you use:
 
-`constraints-tested.txt` records primary dependency versions used for offline checks. It is not a full transitive lockfile or the historical paper environment.
+```dotenv
+GOOGLE_API_KEY=
+OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+OPENROUTER_API_KEY=
+VLLM_API_KEY=
+```
 
-TikZ rendering requires `pdflatex`, `pdfcrop`, diagram packages, and Poppler's `pdftoppm`. A full TeX Live installation is recommended. On Ubuntu, for example:
+Offline data preparation, request construction, and archived-result analysis do not require provider credentials. `.env` is excluded from Git.
+
+### 4. Install rendering tools
+
+A full TeX Live installation is recommended. For example, on Ubuntu:
 
 ```bash
 sudo apt-get install texlive-full poppler-utils
 ```
 
-## Download data
+Run subsequent commands from the repository root with the Python environment activated.
+
+## Data Preparation
+
+### Download from Hugging Face
+
+The benchmark is hosted at [tohoku-nlp/VisEditBench](https://huggingface.co/datasets/tohoku-nlp/VisEditBench). Dataset images and annotations are downloaded separately from the code.
 
 ```bash
 python dataset.py download --revision main
 python dataset.py verify
 ```
 
-The downloader resolves the revision to a Hugging Face commit, downloads metadata/PNGs and `reproduction/` when present, verifies inputs, extracts source/reference TikZ, and joins gold text by ID. Data and results are Git-ignored. Preserve `data/dataset_manifest.json` and use its resolved commit for subsequent runs.
+The downloader resolves the revision to a commit, verifies the inputs, preserves PNG image bytes, extracts source/reference TikZ, and creates shared experiment metadata:
 
-The supplement supplies exact cohort IDs, gold instructions, anonymized human ratings, archived judgments, published values, and qualitative cases. File hashes and the base-metadata hash are checked before use. No benchmark data are embedded in this code repository. See the [HF release guide](docs/huggingface_release.md) for the owner's upload command.
+```text
+data/
+├── raw_hf/                     # Downloaded Hugging Face snapshot
+├── source_images/              # Original diagrams
+├── visual_instructions/        # Annotated instruction images
+├── target_images/              # Reference edited diagrams
+├── source_tikz/                # Original TikZ code
+├── target_tikz/                # Reference edited TikZ code
+├── metadata/edit_metadata.jsonl
+├── image_metadata.jsonl
+├── code_metadata.jsonl
+├── dataset_manifest.json       # Dataset commit and file hashes
+└── reproduction/               # Reproduction supplement, when available
+```
 
-For an already downloaded snapshot:
+Keep `data/dataset_manifest.json` with your results. To use the same dataset version again, pass its resolved commit with `--revision`.
+
+For a previously downloaded snapshot:
 
 ```bash
 python dataset.py prepare --snapshot /path/to/dataset-snapshot
 ```
 
-For the author-only local supplement prepared alongside this repository:
+### Reproduction supplement
+
+Gold-text comparisons, fixed ablation subsets, public human annotations, and archived-result analysis use the `reproduction/` supplement. When present in the snapshot, it is downloaded and verified automatically, and gold text is joined by sample ID.
+
+Some supplemental assets are pending release or have not been located. The base visual-instruction benchmark can be prepared independently; the additional workflows require their corresponding supplement files. See [release instructions](docs/huggingface_release.md) and [coverage](docs/coverage.md) for availability.
+
+An existing local supplement can be installed with:
 
 ```bash
-python dataset.py supplement --source ../VisEditBench_hf_release_20261030/reproduction
+python dataset.py supplement --source /path/to/reproduction
 ```
 
-Use all 694 records for paper experiments. `--limit` creates an explicitly labeled software trial, not the paper's 100-example subset. Figure 6 uses `figure6`, Figure 7 uses `figure7`, and Figure 9 uses `figure7` for 12 configurations and `legacy_verbalization` for 4. The latter two cohorts share only 18 IDs.
+The paper's subsets are selected by recorded IDs rather than arbitrary sampling. Figure 6 and Figure 7 use different 100-example cohorts. Figure 9 uses the Figure 7 cohort for 12 configurations and the earlier verbalization cohort for 4 configurations; these cohorts share 18 IDs.
 
-## Reconstruct saved results without inference
+## Reproducing Experiments
 
-After obtaining the supplement:
+### 1. Prepare generation requests
+
+The main setting provides the original image, original TikZ code, and visual instruction. The following example prepares Gemini 3.1 Pro:
+
+```bash
+python paper.py prepare --experiment main \
+  --models gemini-3.1-pro-preview \
+  --output runs/main
+```
+
+Use `python paper.py models` to inspect registered models. Adding `--limit 1` creates an explicitly labeled software trial. Use a separate output directory for a subsequent full run.
+
+### 2. Submit and collect generation results
+
+```bash
+VEB_JOB_DIR=runs/main/gemini-3.1-pro-preview__direct__main__full
+VEB_JOB="$VEB_JOB_DIR/job.json"
+
+python paper.py submit --job "$VEB_JOB"
+python paper.py collect --job "$VEB_JOB"
+```
+
+`submit` sends requests to the provider and incurs usage charges. `collect` checks the existing batch once; repeat it until every chunk has been collected before continuing. Batch IDs, request hashes, states, and raw responses are saved in the run directory.
+
+### 3. Render edited TikZ
+
+```bash
+python paper.py render --job "$VEB_JOB" --historical
+```
+
+`--historical` uses the paper's PDF-exists compilation success rule with fresh temporary files. Without it, rendering additionally requires a successful compiler exit status. Both modes disable shell escape and prevent stale-output reuse. Record the selected policy.
+
+### 4. Evaluate and aggregate
+
+```bash
+python paper.py judge-prepare --job "$VEB_JOB" --kind image
+
+VEB_JUDGE_JOB="$VEB_JOB_DIR/judges/gemini-3.1-pro-preview/image/repeat_00/job.json"
+python paper.py submit --job "$VEB_JUDGE_JOB"
+python paper.py collect --job "$VEB_JUDGE_JOB"
+```
+
+After all judgments have been collected:
+
+```bash
+python paper.py report --job "$VEB_JUDGE_JOB"
+```
+
+Results are saved next to the judge job as `cases.jsonl` and `summary.json`. The summary includes FSR, mean scores, standard deviations, CFR, edit-type/count breakdowns, and the one-operation edit-type analysis used by Figure 4.
+
+Rendering failures receive the minimum image scores. Missing generation responses and judge errors remain pending and stop final reporting; they are not silently counted as model failures.
+
+For code-level evaluation, prepare a separate judge job with `--kind code`. To compare judges, use `--judge-model claude-opus-4-6` on the **same generation job**. Existing diagrams are reused for judge comparison.
+
+### Experiment configurations
+
+```bash
+python paper.py plan --experiment verbalization
+```
+
+| Experiment | Groups | Setting |
+| --- | ---: | --- |
+| `main` | 29 | Visual instructions with original image/code; 694 examples |
+| `direct_image` | 3 | Direct image editing; 694 examples |
+| `modality` | 16 | 4 models × 4 input variants; Figure 6 cohort |
+| `text_visual` | 26 | 13 models × visual/gold text; Figure 7 cohort |
+| `verbalization` | 64 | 16 configurations × 4 conditions; recorded cohort/profile per configuration |
+
+Unavailable models are retained in the registry and stop at submission unless explicitly reviewed with `--include-blocked`. No alternative model is selected automatically. Hosted model revisions and unrecorded historical runtime settings can affect numerical reproduction.
+
+Failed responses can be isolated with `python paper.py retry --job "$VEB_JOB"`. Successful retries are merged by ID and request fingerprint. Existing successes are not resent. See [workflow details](docs/reproducibility.md) for the retained backend implementations.
+
+## Verbalization Experiments
+
+Prepare the four prompting conditions for a selected model:
+
+```bash
+python edit.py verbalize \
+  --models gemini-3.1-pro-preview \
+  --output runs/verbalization
+```
+
+This is equivalent to `paper.py prepare --experiment verbalization`. Every condition receives the original diagram image and TikZ code.
+
+| Condition | Instruction setting |
+| --- | --- |
+| `direct` | Edit from the visual instruction |
+| `verbalize_first` | Verbalize the visual instruction, then edit within the same response |
+| `gold_text` | Edit from the gold textual instruction |
+| `gold_text_visual` | Edit using both visual and gold textual instructions |
+
+In `verbalize_first`, the model returns `<instruction>...</instruction>` followed by the edited TikZ. The visual instruction remains available while editing. Generated instructions, TikZ, and raw responses are stored separately.
+
+Submit, collect, and render each prepared job using the workflow above. Figure 9 uses **Gemini 3.6 Flash** for judging, so its judge jobs are under `judges/gemini-3.6-flash/`. Main and Figure 7 experiments default to Gemini 3.1 Pro.
+
+Request templates preserve sampling options, explicit thinking settings, image order, and system/user arrangements. The four earlier configurations retain their separate seed-42 / 50,000-token profile. See [prompt definitions](configs/prompts.json) and [coverage](docs/coverage.md).
+
+## Local and Direct Image Models
+
+### Local vLLM inference
+
+Use a compatible vLLM environment or the supplied container definitions:
+
+| Purpose | Definition |
+| --- | --- |
+| Editing | [editing/vllm/vllm.def](editing/vllm/vllm.def) |
+| Image evaluation | [evaluation_image-level/vllm/vllm.def](evaluation_image-level/vllm/vllm.def) |
+
+The corresponding `apptainer/build.sh` scripts are run from the repository root. Container builds and GPU execution require validation in the target environment.
+
+```bash
+python paper.py prepare --experiment main \
+  --models qwen3.5-4b-nothink \
+  --output runs/qwen4b
+
+python paper.py server-command --model qwen3.5-4b-nothink
+```
+
+`server-command` prints the configured launch command. Start that server in your GPU environment, then run:
+
+```bash
+python paper.py chat \
+  --job runs/qwen4b/qwen3.5-4b-nothink__direct__main__full/job.json \
+  --endpoint http://127.0.0.1:8000/v1
+```
+
+OpenRouter jobs use the same `chat` command with `--endpoint https://openrouter.ai/api/v1`.
+
+### Direct image editing
+
+```bash
+python paper.py prepare --experiment direct_image \
+  --models gemini-3-pro-image-preview \
+  --output runs/direct_image
+
+python paper.py image-run \
+  --job runs/direct_image/gemini-3-pro-image-preview__direct__main__full/job.json
+```
+
+The registered backends include Gemini 3 Pro Image, GPT Image 1.5, and Qwen Image Edit. Their outputs are evaluated with image-level judges; code-level evaluation does not apply. See [backend details](docs/backends.md).
+
+## Archived Results and Figures
+
+With the reproduction supplement installed, regenerate saved analyses without model inference:
 
 ```bash
 python paper.py reproduce --output runs/paper_reproduction
@@ -67,109 +317,81 @@ python paper.py reproduce --output runs/paper_reproduction
 
 Open `runs/paper_reproduction/index.html`. Outputs include:
 
-- Figure 3–9 PDFs/PNGs, including the one-operation Figure 4 heatmap and four-condition Figure 9.
-- CSV/LaTeX tables for archived published inputs and separately named recomputed metrics.
-- FSR, means, standard deviations, direct-image type/count analyses, human correlations and ordinal agreement, and judge-rank correlations.
-- Original/instruction/output assets and code differences for the selected LAYOUT and STRUCTURE cases.
-- `reproduction_report.json`, containing provenance, reconstructed counts, and unresolved gaps.
+- Figure 3–9 PDFs/PNGs.
+- Published-input tables and separately named recomputed CSV/LaTeX tables.
+- FSR, mean/std, direct-image edit-type/count analyses, human correlations and ordinal agreement, and judge-rank correlations.
+- Selected LAYOUT/STRUCTURE image comparisons and code differences.
+- `reproduction_report.json`, with input provenance and remaining coverage gaps.
 
-Published snapshots retain their recorded source versions. Files ending in `_recomputed` are calculated from distributed ratings. Only one code judge's complete question-ID-based raw correlation scores was located; published snapshots for the other code judges are retained separately. See [coverage](docs/coverage.md).
+Archived-result analysis and new inference are separate workflows. Published snapshots keep their recorded versions; `_recomputed` outputs use the distributed ratings. See [coverage](docs/coverage.md) for missing original assets and differences between historical and new runs.
 
-## Run new experiments
+## Public Human Annotation Data
 
-```bash
-python paper.py models
-python paper.py plan --experiment verbalization
+The reproduction supplement provides filtered human ratings and corresponding automatic judgments:
+
+```text
+data/reproduction/human/
+├── ratings.jsonl
+├── image_judges.jsonl
+└── code_judges.jsonl
 ```
 
-| Experiment | Groups | Cohort / condition |
-| --- | ---: | --- |
-| `main` | 29 | 694 diagrams, visual instruction + original image/code |
-| `direct_image` | 3 | 694 diagrams, direct image editing |
-| `modality` | 16 | 4 models × 4 input variants, Figure 6 cohort |
-| `text_visual` | 26 | 13 models × visual/gold text, Figure 7 cohort |
-| `verbalization` | 64 | 16 configurations × 4 conditions, per-configuration cohort/profile |
+| Rating field | Description |
+| --- | --- |
+| `question_id` | Identifier used to match ratings to an evaluated output |
+| `generated_model` | Model that generated the evaluated diagram |
+| `rater` | Anonymized rater identifier |
+| `instruction_adherence` | IA rating; 1–5 |
+| `content_preservation` | CP rating; 1–5 |
+| `diagram_readability` | DR rating; 1–5 |
 
-Recorded unavailable models remain identifiable; submission stops unless `--include-blocked` is explicitly supplied after checking access. No replacement is silently selected. Hosted versions, unrecorded historical revisions, and runtime changes limit exact numerical reproduction.
+The prepared release contains 1,350 filtered ratings for 300 outputs. Rater labels are anonymized; worker/assignment IDs and free-text comments are excluded. Original five-repeat stability assets remain unavailable; the [stability workflow](docs/stability.md) accepts the original 50-output selection once provided.
 
-### Four-condition preparation
+## Repository Structure
 
-```bash
-python edit.py verbalize --models gemini-3.1-pro-preview --output runs/verbalization
+```text
+VisEditBench/
+├── configs/                    # Model registry, prompts, request templates, TOML examples
+├── editing/
+│   ├── batch_api/              # Batch API editing
+│   ├── vllm/                   # Local vLLM clients and container definition
+│   ├── openrouter/             # OpenRouter client
+│   ├── diffusers/              # Qwen image editing
+│   └── compile_tikz_batch.py
+├── evaluation_image-level/     # Image-level judging backends
+├── evaluation_code-level/      # Code-level judging backends
+├── viseditbench/               # Data, workflow, provider, and analysis modules
+├── scripts/                    # Offline validation and release-preparation utilities
+├── tests/                      # Synthetic-input and mocked-API tests
+├── docs/                       # Protocol details, coverage, and validation
+├── dataset.py                  # HF download and metadata preparation
+├── edit.py                     # Editing and verbalization entry point
+├── eval.py                     # Retained evaluation entry point
+├── paper.py                    # Experiment planning, inference, judging, and analysis
+├── results.py                  # Image-score aggregation
+├── constraints-tested.txt
+└── pyproject.toml
 ```
 
-This is equivalent to `python paper.py prepare --experiment verbalization ...`. It creates four jobs for the selected model:
-
-1. `direct`: visual instruction editing.
-2. `verbalize_first`: **one response** containing `<instruction>...</instruction>` followed by TikZ. The visual instruction remains available while editing.
-3. `gold_text`: gold textual instruction editing.
-4. `gold_text_visual`: editing with both instruction modalities.
-
-Templates retain each configuration's sampling options, system/user arrangement, image order, and explicit thinking setting. Local images replace historical GCS URLs. The old four configurations keep their separate seed-42 / 50,000-token profile. Generated instructions, edited code, and raw responses are saved separately.
-
-For a small software trial, add `--limit 1`. Use a new output directory for the full run; prepared requests are not overwritten.
-
-### Submit, collect, render, and judge
-
-For the Gemini verbalization job:
-
-```bash
-JOB=runs/verbalization/gemini-3.1-pro-preview__verbalize_first__main__full/job.json
-python paper.py submit --job "$JOB"
-python paper.py collect --job "$JOB"
-```
-
-`submit` contacts the provider and incurs charges. `collect` checks the existing job once; repeat until all chunks are collected. IDs/states are saved; submissions with unknown outcomes are not resent automatically. Request chunks are kept under 30 MB.
-
-```bash
-python paper.py render --job "$JOB" --historical
-python paper.py judge-prepare --job "$JOB" --kind image
-```
-
-`--historical` uses the paper's PDF-exists compilation rule with fresh temporary files. Without it, rendering also requires a successful compiler exit. Both disable shell escape and prevent stale-output reuse. Record the chosen policy.
-
-Figure 9 uses Gemini 3.6 Flash; main and Figure 7 runs default to Gemini 3.1 Pro.
-
-```bash
-JUDGE=runs/verbalization/gemini-3.1-pro-preview__verbalize_first__main__full/judges/gemini-3.6-flash/image/repeat_00/job.json
-python paper.py submit --job "$JUDGE"
-python paper.py collect --job "$JUDGE"
-python paper.py report --job "$JUDGE"
-```
-
-Reports contain per-case scores, overall/edit-type/count metrics, standard deviations, CFR, and one-operation edit-type metrics. FSR requires IA = CP = DR = 5. Outputs failing to render receive 1; API/judge failures remain pending and stop final reporting.
-
-For code judging, use `judge-prepare --kind code`. For alternative judges, use `judge-prepare --judge-model claude-opus-4-6` on the **same generation job**; do not regenerate diagrams. For repeated judging, use `--repeats 5`; see [stability instructions](docs/stability.md) for the original 50-output protocol.
-
-`python paper.py retry --job "$JOB"` isolates failed responses. Submit/collect the returned retry job; successes merge by ID and request fingerprint. Existing successes are not resent. If submission was interrupted before saving its ID, use `recover --chunk N --job-id CONFIRMED_PROVIDER_JOB_ID` after checking the provider's job; do not delete the journal.
-
-### vLLM and direct-image models
-
-Both container definitions are present:
-
-- [editing/vllm/vllm.def](editing/vllm/vllm.def)
-- [evaluation_image-level/vllm/vllm.def](evaluation_image-level/vllm/vllm.def)
-
-Run their `apptainer/build.sh` scripts from the repository root. The recipes use `vllm/vllm-openai:v0.19.1`; actual builds/GPU runs have not been tested locally.
-
-```bash
-python paper.py server-command --model qwen3.5-4b-nothink
-```
-
-This prints the recorded command without starting a server. After the user starts it, send a prepared vLLM job with:
-
-```bash
-python paper.py chat --job /path/to/job.json --endpoint http://127.0.0.1:8000/v1
-```
-
-OpenRouter uses `https://openrouter.ai/api/v1`. Direct-image jobs prepared with `--experiment direct_image` use `paper.py image-run --job ...`. Qwen additionally needs `python -m pip install -e '.[diffusers]'` and a compatible CUDA environment. See [backend details](docs/backends.md).
-
-## Offline checks
+## Verification
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-Tests use synthetic inputs and mocked APIs, plus real TikZ rendering when available. They check all 29 code models' four conditions, the 64-group plan, exact cohorts, both def inputs, thinking/seed settings, duplicate-submission protection, extraction, retry merging, image processing, statistics, and reporting.
+The offline tests cover four-condition requests for all 29 code models, the 64-group Figure 9 plan, fixed cohorts, def-file inputs, retry/duplicate-submission handling, extraction, image processing, statistics, and reporting. Real TikZ rendering is checked when TeX/Poppler are available.
 
-The owner can also use `scripts/validate_local_snapshot.py`. Actual HF download, clean-environment installation, container building, provider availability, and paid API/GPU inference remain untested in the target environment. Unavailable original assets are reported in the coverage report.
+Offline tests do not establish successful execution on every provider/GPU environment or exact regeneration of historical outputs. Current verification results and remaining data gaps are documented in [validation](docs/validation.md) and [coverage](docs/coverage.md).
+
+## Citation
+
+For project and publication information, see the [project page](https://viseditbench.github.io/).
+
+```bibtex
+@misc{taneguchi2026viseditbench,
+  title  = {VisEditBench: A Benchmark for Vector-Format Diagram Editing with Visual Instructions},
+  author = {Akito Taneguchi and Haruto Yoshida and Jun Suzuki and Itsumi Saito},
+  year   = {2026},
+  url    = {https://viseditbench.github.io/},
+}
+```
