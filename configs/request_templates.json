@@ -1,0 +1,2230 @@
+{
+  "main": {
+    "gemini-3.1-pro-preview": {
+      "direct": {
+        "systemInstruction": {
+          "parts": [
+            {
+              "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+            }
+          ]
+        },
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$VIS_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "systemInstruction": {
+          "parts": [
+            {
+              "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+            }
+          ]
+        },
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gemini-3-flash-preview": {
+      "direct": {
+        "systemInstruction": {
+          "parts": [
+            {
+              "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+            }
+          ]
+        },
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$VIS_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "systemInstruction": {
+          "parts": [
+            {
+              "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+            }
+          ]
+        },
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "qwen3.5-397b-a17b-nothink": {
+      "direct": {
+        "model": "qwen/qwen3.5-397b-a17b",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 128000,
+        "reasoning": {
+          "enabled": false,
+          "exclude": false
+        }
+      },
+      "gold_text": {
+        "model": "qwen/qwen3.5-397b-a17b",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 128000,
+        "reasoning": {
+          "enabled": false,
+          "exclude": false
+        }
+      }
+    },
+    "claude-opus-4-6": {
+      "direct": {
+        "model": "claude-opus-4-6",
+        "system": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n",
+        "max_tokens": 8192,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$VIS_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "model": "claude-opus-4-6",
+        "system": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n",
+        "max_tokens": 8192,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "claude-sonnet-4-5": {
+      "direct": {
+        "model": "claude-sonnet-4-5",
+        "system": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n",
+        "max_tokens": 8192,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$VIS_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "model": "claude-sonnet-4-5",
+        "system": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n",
+        "max_tokens": 8192,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "qwen3.5-35b-a3b-nothink": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-35B-A3B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1) the original TikZ code of a diagram,\n2) the original diagram image, and\n3) an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Resolve ambiguities by referring to the original diagram (code + image) for the base structure and the annotated image for the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{{standalone}}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{{document}}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-35B-A3B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      }
+    },
+    "gpt-5.4": {
+      "direct": {
+        "model": "gpt-5.4",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$ORG_DATA_URL"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$VIS_DATA_URL"
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "model": "gpt-5.4",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$ORG_DATA_URL"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gemini-3.1-flash-lite-preview": {
+      "direct": {
+        "systemInstruction": {
+          "parts": [
+            {
+              "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+            }
+          ]
+        },
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$VIS_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "systemInstruction": {
+          "parts": [
+            {
+              "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+            }
+          ]
+        },
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "qwen3.5-9b-nothink": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-9B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1) the original TikZ code of a diagram,\n2) the original diagram image, and\n3) an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Resolve ambiguities by referring to the original diagram (code + image) for the base structure and the annotated image for the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{{standalone}}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{{document}}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-9B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      }
+    },
+    "claude-haiku-4-5": {
+      "direct": {
+        "model": "claude-haiku-4-5",
+        "system": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n",
+        "max_tokens": 8192,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$VIS_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "model": "claude-haiku-4-5",
+        "system": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n",
+        "max_tokens": 8192,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image",
+                "source": {
+                  "type": "base64",
+                  "media_type": "image/png",
+                  "data": "$ORG_BASE64"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "qwen3.5-4b-nothink": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-4B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1) the original TikZ code of a diagram,\n2) the original diagram image, and\n3) an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Resolve ambiguities by referring to the original diagram (code + image) for the base structure and the annotated image for the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{{standalone}}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{{document}}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-4B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      }
+    },
+    "gpt-5.4-mini": {
+      "direct": {
+        "model": "gpt-5.4-mini",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$ORG_DATA_URL"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$VIS_DATA_URL"
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "model": "gpt-5.4-mini",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$ORG_DATA_URL"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gpt-5.4-nano": {
+      "direct": {
+        "model": "gpt-5.4-nano",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$ORG_DATA_URL"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$VIS_DATA_URL"
+              }
+            ]
+          }
+        ]
+      },
+      "gold_text": {
+        "model": "gpt-5.4-nano",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "input_image",
+                "image_url": "$ORG_DATA_URL"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "qwen3.5-4b": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-4B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-4B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      }
+    },
+    "qwen3.5-9b": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-9B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-9B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      }
+    },
+    "qwen3.5-35b-a3b": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-35B-A3B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-35B-A3B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      }
+    },
+    "qwen3.5-397b-a17b": {
+      "direct": {
+        "model": "qwen/qwen3.5-397b-a17b",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 128000,
+        "enable_thinking": true
+      },
+      "gold_text": {
+        "model": "qwen/qwen3.5-397b-a17b",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 128000,
+        "enable_thinking": true
+      }
+    },
+    "qwen3-vl-4b-instruct": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-4B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-4B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-4b-thinking": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-4B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-4B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-8b-instruct": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-8b-thinking": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-8B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-8B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-30b-a3b-instruct": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-30b-a3b-thinking": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-235b-a22b-instruct": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "qwen3-vl-235b-a22b-thinking": {
+      "direct": {
+        "model": "Qwen/Qwen3-VL-235B-A22B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3-VL-235B-A22B-Thinking",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "gemma4-e4b-it": {
+      "direct": {
+        "model": "google/gemma-4-E4B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "google/gemma-4-E4B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "gemma4-31b-it": {
+      "direct": {
+        "model": "google/gemma-4-31B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "google/gemma-4-31B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "glm-4-5v": {
+      "direct": {
+        "model": "zai-org/GLM-4.5V",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "zai-org/GLM-4.5V",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    },
+    "glm-4-6v": {
+      "direct": {
+        "model": "zai-org/GLM-4.6V",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      },
+      "gold_text": {
+        "model": "zai-org/GLM-4.6V",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "seed": 42,
+        "max_tokens": 128000
+      }
+    }
+  },
+  "legacy_verbalization": {
+    "qwen3.5-4b": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-4B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-4B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      }
+    },
+    "qwen3.5-35b-a3b": {
+      "direct": {
+        "model": "Qwen/Qwen3.5-35B-A3B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "gold_text": {
+        "model": "Qwen/Qwen3.5-35B-A3B",
+        "messages": [
+          {
+            "role": "system",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      }
+    },
+    "gemma4-31b-it": {
+      "direct": {
+        "model": "google/gemma-4-31B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0
+      },
+      "gold_text": {
+        "model": "google/gemma-4-31B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0
+      }
+    },
+    "gemma4-e4b-it": {
+      "direct": {
+        "model": "google/gemma-4-E4B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original TikZ code of a diagram,\n2. the original diagram image, and\n3. an annotated version of that diagram image containing visual edit instructions.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the annotated image to identify the requested edits.\n- Use both the original image to capture the underlying content and the annotated image to understand the intended modifications.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$VIS_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0
+      },
+      "gold_text": {
+        "model": "google/gemma-4-E4B-it",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are an expert at editing LaTeX/TikZ diagrams.\n\nYou are given:\n1. the original diagram image,\n2. the original TikZ code of a diagram, and\n3. a text instruction that describes how to edit the diagram.\n\nUse all inputs together:\n- Use the original TikZ code and the original image to understand the structure and content of the diagram.\n- Use the text instruction to identify the requested edits.\n\nApply the requested edits and produce LaTeX/TikZ code representing the final diagram after the edits have been applied.\nYour output must describe only the final edited diagram, not the original diagram and not the editing process.\n\nReturn only a complete standalone LaTeX document that compiles the final edited diagram.\nThe output must:\n- begin with \\documentclass{standalone}\n- include all required packages and TikZ libraries\n- contain exactly one tikzpicture environment\n- end with \\end{document}\n\nDo not include any explanation, reasoning, markdown, code fences, comments, or any text before or after the LaTeX document.\n"
+              },
+              {
+                "type": "text",
+                "text": "Original TikZ code:\n$SOURCE_TIKZ\n\nText instruction:\n$GOLD_TEXT\n"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "$ORG_DATA_URL"
+                }
+              }
+            ]
+          }
+        ],
+        "max_tokens": 50000,
+        "seed": 42,
+        "top_p": 1.0,
+        "top_k": -1,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "repetition_penalty": 1.0
+      }
+    }
+  }
+}

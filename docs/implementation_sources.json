@@ -1,0 +1,524 @@
+[
+  {
+    "file": "edit.py",
+    "source": "NeurIPS2026_submit/edit.py",
+    "source_kind": "submission",
+    "source_sha256": "6ceef1bbb4c270b018a30f629391c7a221c1507572664d9afa0c80e69d99539e"
+  },
+  {
+    "file": "eval.py",
+    "source": "NeurIPS2026_submit/eval.py",
+    "source_kind": "submission",
+    "source_sha256": "9e0e1032002bb6d88a59ade9ae2dde0ba7d32e7768fc0c3543348f6b1352d963"
+  },
+  {
+    "file": "editing/compile_tikz_batch.py",
+    "source": "NeurIPS2026_submit/editing/compile_tikz_batch.py",
+    "source_kind": "submission",
+    "source_sha256": "8de81e00854b48ed356b24969b22ef2f264baee06d977253efb4a954fba788c4"
+  },
+  {
+    "file": "editing/openrouter/edit_images.py",
+    "source": "NeurIPS2026_submit/editing/openrouter/edit_images.py",
+    "source_kind": "submission",
+    "source_sha256": "1bb9c8f21f0934b67170a8af7b255fe74594d36fe219544c209947caf6438f21"
+  },
+  {
+    "file": "editing/batch_api/steps/03_extract_tikz.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/steps/03_extract_tikz.py",
+    "source_kind": "submission",
+    "source_sha256": "b8c1c90d8df31b23b9a74cdfd7446326c2471b3398d4e558c3c406ab919bf4eb"
+  },
+  {
+    "file": "editing/batch_api/steps/02_run_batch.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/steps/02_run_batch.py",
+    "source_kind": "submission",
+    "source_sha256": "6d485eed5f55819872c0e21a66299610b786c3f510a027cbef8f77ecf40bc283"
+  },
+  {
+    "file": "editing/batch_api/steps/01_generate_jsonl.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/steps/01_generate_jsonl.py",
+    "source_kind": "submission",
+    "source_sha256": "aa6f2c894a625274bb7d35e733bd11f423d82ac93aa786672efec4c9fab99c62"
+  },
+  {
+    "file": "editing/batch_api/lib/config.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/lib/config.py",
+    "source_kind": "submission",
+    "source_sha256": "c0e79a74239fa63cfe9fc0d63fa42213d13903af7e995e9c96c5d27472163eb8"
+  },
+  {
+    "file": "editing/batch_api/lib/generate.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/lib/generate.py",
+    "source_kind": "submission",
+    "source_sha256": "20c793bd80347c52802a4b0624613bd8f25b63127c8efe8e7d788991ef29a05d"
+  },
+  {
+    "file": "editing/batch_api/lib/__init__.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/lib/__init__.py",
+    "source_kind": "submission",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "editing/batch_api/lib/batch_run.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/lib/batch_run.py",
+    "source_kind": "submission",
+    "source_sha256": "34b65f6c1dfe2ef57ac853bc6e60c46de06a639edf548c6b8fef5311e82fa861"
+  },
+  {
+    "file": "editing/batch_api/lib/extract.py",
+    "source": "NeurIPS2026_submit/editing/batch_api/lib/extract.py",
+    "source_kind": "submission",
+    "source_sha256": "09f2b213e8fe1dcd86fb1c89f3ca7a5ef1017b0956403fcd8db445af99d6991e"
+  },
+  {
+    "file": "editing/diffusers/edit_images_by_qwen-image-edit-2511.py",
+    "source": "NeurIPS2026_submit/editing/diffusers/edit_images_by_qwen-image-edit-2511.py",
+    "source_kind": "submission",
+    "source_sha256": "e843f0bfc56300d2b6b6bc97373b612a4ed9b7ed3a6267c9f62dadbe93a50f59"
+  },
+  {
+    "file": "editing/diffusers/scripts/run_qwen-image-edit-2511.sh",
+    "source": "NeurIPS2026_submit/editing/diffusers/scripts/run_qwen-image-edit-2511.sh",
+    "source_kind": "submission",
+    "source_sha256": "f16ed230930e41bd8c041e46bdb54c9fef79addcf3b0bb28d40e7c22caa67cb9"
+  },
+  {
+    "file": "editing/vllm/run_vllm_edit_inference.py",
+    "source": "NeurIPS2026_submit/editing/vllm/run_vllm_edit_inference.py",
+    "source_kind": "submission",
+    "source_sha256": "94f1d3dc615d1a1b9c23b1b03b33f0184440b1d5295ed4cc9f1f4d5c713fa67f"
+  },
+  {
+    "file": "editing/vllm/entrypoint.sh",
+    "source": "NeurIPS2026_submit/editing/vllm/entrypoint.sh",
+    "source_kind": "submission",
+    "source_sha256": "d6c5539e925d82d2c8872695e5320d3dc1b2cca2496b1ff6915a6f94067bcdf7"
+  },
+  {
+    "file": "editing/vllm/apptainer/run.sh",
+    "source": "NeurIPS2026_submit/editing/vllm/apptainer/run.sh",
+    "source_kind": "submission",
+    "source_sha256": "27dc1b3d5bc9d4bd6222e8ebaac6b196570ccbb8207d3c19342901361a50f513"
+  },
+  {
+    "file": "editing/vllm/apptainer/build.sh",
+    "source": "NeurIPS2026_submit/editing/vllm/apptainer/build.sh",
+    "source_kind": "submission",
+    "source_sha256": "98b54819bb28aa2c57812ecf2b9a892c136b6618ab7a85b8d27b51ee3f0b6a14"
+  },
+  {
+    "file": "editing/vllm/utils/__init__.py",
+    "source": "NeurIPS2026_submit/editing/vllm/utils/__init__.py",
+    "source_kind": "submission",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "editing/vllm/utils/logger.py",
+    "source": "NeurIPS2026_submit/editing/vllm/utils/logger.py",
+    "source_kind": "submission",
+    "source_sha256": "d17ac638131b7d07c976be0b017bca874ca9fb8d2978969b84d70dcd257310e8"
+  },
+  {
+    "file": "editing/vllm/utils/file_io.py",
+    "source": "NeurIPS2026_submit/editing/vllm/utils/file_io.py",
+    "source_kind": "submission",
+    "source_sha256": "073ac9e49921723284f1c89f3740d41179a80e46a158339b8099e60085bfda86"
+  },
+  {
+    "file": "editing/vllm/scripts/run_vllm_server.sh",
+    "source": "NeurIPS2026_submit/editing/vllm/scripts/run_vllm_server.sh",
+    "source_kind": "submission",
+    "source_sha256": "d1d364fba89b73b51f4446eaa3e4e595667aaa53b95f5125dbe34ead223565ac"
+  },
+  {
+    "file": "editing/vllm/scripts/run_vllm_pipeline_edit.sh",
+    "source": "NeurIPS2026_submit/editing/vllm/scripts/run_vllm_pipeline_edit.sh",
+    "source_kind": "submission",
+    "source_sha256": "a3457b603860e84d6197935ca6b8a1a3a1b8ef17fe6a76dd56eba239c9bc95c8"
+  },
+  {
+    "file": "editing/vllm/src/http_client.py",
+    "source": "NeurIPS2026_submit/editing/vllm/src/http_client.py",
+    "source_kind": "submission",
+    "source_sha256": "c05f66cb7cbff979d0d6774b235267a0fe7d848820e82d1c43dd374b4d68ec24"
+  },
+  {
+    "file": "editing/vllm/src/message.py",
+    "source": "NeurIPS2026_submit/editing/vllm/src/message.py",
+    "source_kind": "submission",
+    "source_sha256": "d93594ed159c0a5eadcf31fe7fd409a4620b0f64a045aa2df8327d0afdbab39f"
+  },
+  {
+    "file": "editing/vllm/src/schema.py",
+    "source": "NeurIPS2026_submit/editing/vllm/src/schema.py",
+    "source_kind": "submission",
+    "source_sha256": "344d7830c291e42dc67530f8011cdbc8b7184ad4e670abdc1033282c0bcf9f4e"
+  },
+  {
+    "file": "evaluation_image-level/openrouter/utils.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/openrouter/utils.py",
+    "source_kind": "submission",
+    "source_sha256": "7503a5068822595d5981c10978399b751f4b7fe375e2a147dfa067784fddb0d0"
+  },
+  {
+    "file": "evaluation_image-level/openrouter/evaluate.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/openrouter/evaluate.py",
+    "source_kind": "submission",
+    "source_sha256": "c9e569877005c75439825ed248ef5463eaefb1c9068d8bce5baba42adce3049d"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/steps/03_extract_scores.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/steps/03_extract_scores.py",
+    "source_kind": "submission",
+    "source_sha256": "0602f20bab6e628ecef1011e409ff9b191c269de5864a714319114156f74f32e"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/steps/02_run_batch.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/steps/02_run_batch.py",
+    "source_kind": "submission",
+    "source_sha256": "ab711679289a242f0288367d8af2452b2cf794278186822d0530324c28200900"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/steps/01_generate_jsonl.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/steps/01_generate_jsonl.py",
+    "source_kind": "submission",
+    "source_sha256": "844c30dcca79e0b84898b9182da7579a2719c230c8eb786a8ae490844ca9a138"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/lib/config.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/lib/config.py",
+    "source_kind": "submission",
+    "source_sha256": "b1e0fca66c4dbceab595dfe9fec9389a7891d4a702c53405c458a779ec680667"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/lib/generate.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/lib/generate.py",
+    "source_kind": "submission",
+    "source_sha256": "438a48d326daee2ff732bf1f47dd5861a62dad75d96a45d60af2f0777a182e63"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/lib/__init__.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/lib/__init__.py",
+    "source_kind": "submission",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/lib/batch_run.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/lib/batch_run.py",
+    "source_kind": "submission",
+    "source_sha256": "37b25e1b29ecc9ca390e1cec742a9bb35898be7e0863170538e3c5dbadabc5c9"
+  },
+  {
+    "file": "evaluation_image-level/batch_api/lib/extract.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/batch_api/lib/extract.py",
+    "source_kind": "submission",
+    "source_sha256": "dd9902f2f246bb8305c1955c80b65e3c78550ddba41d221da5b78d53b2c8b82e"
+  },
+  {
+    "file": "evaluation_image-level/vllm/run_vllm_evaluation.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/run_vllm_evaluation.py",
+    "source_kind": "submission",
+    "source_sha256": "bd28ee4b071b25d56a041e573d2bbbfd8249ee234c888be32dfad68ba279069f"
+  },
+  {
+    "file": "evaluation_image-level/vllm/vllm.def",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/vllm.def",
+    "source_kind": "submission",
+    "source_sha256": "957c6f1786e7601db4c8cad8cab32c3d30beecf0a5de3a8fc82dce1aaa00fdb8"
+  },
+  {
+    "file": "evaluation_image-level/vllm/entrypoint.sh",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/entrypoint.sh",
+    "source_kind": "submission",
+    "source_sha256": "d6c5539e925d82d2c8872695e5320d3dc1b2cca2496b1ff6915a6f94067bcdf7"
+  },
+  {
+    "file": "evaluation_image-level/vllm/apptainer/run.sh",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/apptainer/run.sh",
+    "source_kind": "submission",
+    "source_sha256": "27dc1b3d5bc9d4bd6222e8ebaac6b196570ccbb8207d3c19342901361a50f513"
+  },
+  {
+    "file": "evaluation_image-level/vllm/apptainer/build.sh",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/apptainer/build.sh",
+    "source_kind": "submission",
+    "source_sha256": "98b54819bb28aa2c57812ecf2b9a892c136b6618ab7a85b8d27b51ee3f0b6a14"
+  },
+  {
+    "file": "evaluation_image-level/vllm/utils/__init__.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/utils/__init__.py",
+    "source_kind": "submission",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "evaluation_image-level/vllm/utils/logger.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/utils/logger.py",
+    "source_kind": "submission",
+    "source_sha256": "d17ac638131b7d07c976be0b017bca874ca9fb8d2978969b84d70dcd257310e8"
+  },
+  {
+    "file": "evaluation_image-level/vllm/utils/file_io.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/utils/file_io.py",
+    "source_kind": "submission",
+    "source_sha256": "073ac9e49921723284f1c89f3740d41179a80e46a158339b8099e60085bfda86"
+  },
+  {
+    "file": "evaluation_image-level/vllm/scripts/run_vllm_server.sh",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/scripts/run_vllm_server.sh",
+    "source_kind": "submission",
+    "source_sha256": "d1d364fba89b73b51f4446eaa3e4e595667aaa53b95f5125dbe34ead223565ac"
+  },
+  {
+    "file": "evaluation_image-level/vllm/scripts/run_vllm_pipeline_evaluation.sh",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/scripts/run_vllm_pipeline_evaluation.sh",
+    "source_kind": "submission",
+    "source_sha256": "583110276f7279119ae45a8264dac4f301c7ed694e3b54de70863826f459264a"
+  },
+  {
+    "file": "evaluation_image-level/vllm/src/http_client.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/src/http_client.py",
+    "source_kind": "submission",
+    "source_sha256": "c05f66cb7cbff979d0d6774b235267a0fe7d848820e82d1c43dd374b4d68ec24"
+  },
+  {
+    "file": "evaluation_image-level/vllm/src/message.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/src/message.py",
+    "source_kind": "submission",
+    "source_sha256": "d93594ed159c0a5eadcf31fe7fd409a4620b0f64a045aa2df8327d0afdbab39f"
+  },
+  {
+    "file": "evaluation_image-level/vllm/src/schema.py",
+    "source": "NeurIPS2026_submit/evaluation_image-level/vllm/src/schema.py",
+    "source_kind": "submission",
+    "source_sha256": "344d7830c291e42dc67530f8011cdbc8b7184ad4e670abdc1033282c0bcf9f4e"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/steps/03_extract_scores.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/steps/03_extract_scores.py",
+    "source_kind": "submission",
+    "source_sha256": "372e675e3d0380e89882f3ce4352db10359ccd2dcb33a640ca936c3326889259"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/steps/01_generate_jsonl_smart_retry.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/steps/01_generate_jsonl_smart_retry.py",
+    "source_kind": "submission",
+    "source_sha256": "11f9d112623be6f0d7b24b513e09c8c54ca38d61be1d4857d2e2d2d3697230a5"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/steps/02_run_batch.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/steps/02_run_batch.py",
+    "source_kind": "submission",
+    "source_sha256": "a5e7b2641a660321e1d8a93d2c697dad15f9a1ae3edaeac058d63f21b32eb687"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/steps/01_generate_jsonl.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/steps/01_generate_jsonl.py",
+    "source_kind": "submission",
+    "source_sha256": "003602910b64a002e2ee39b5c5a94780f4cde16db9828c1d901a9108f97dee28"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/steps/01_generate_jsonl_from_url_csv.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/steps/01_generate_jsonl_from_url_csv.py",
+    "source_kind": "submission",
+    "source_sha256": "7785e76a8298c085acc46fff9832f1f8dd4f72fcf10060e2603314760f39be3f"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/lib/config.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/lib/config.py",
+    "source_kind": "submission",
+    "source_sha256": "457e9b22e030a390170422a05cf6fd1169d765ce3b818312b5225ed0b0c08874"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/lib/generate.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/lib/generate.py",
+    "source_kind": "submission",
+    "source_sha256": "d8ea197b477871e444422eae968223a36b9d37c681687f6ae8666c5de30c156f"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/lib/__init__.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/lib/__init__.py",
+    "source_kind": "submission",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/lib/batch_run.py",
+    "source": "NeurIPS2026_submit/evaluation_code-level/batch_api/lib/batch_run.py",
+    "source_kind": "submission",
+    "source_sha256": "37b25e1b29ecc9ca390e1cec742a9bb35898be7e0863170538e3c5dbadabc5c9"
+  },
+  {
+    "file": "evaluation_code-level/batch_api/lib/extract.py",
+    "source": "batch_api_pipeline/evaluation_code/lib/extract.py",
+    "source_kind": "current",
+    "source_sha256": "3e44002245e7b508cf7a07b22b18f95d6eda7ea1b6546fad0b6971066e039aa1"
+  },
+  {
+    "file": "configs/prompts.json",
+    "source": "figure7_four_conditions_13models_20261023/config/prompts.json",
+    "source_kind": "current",
+    "source_sha256": "9f8c20ce9922409bae15f96a31c51bae5db9269067aaacfd6c54c1af9197ed00"
+  },
+  {
+    "file": "viseditbench/providers.py",
+    "source": "figure7_four_conditions_13models_20261023/providers.py",
+    "source_kind": "current",
+    "source_sha256": "3029cbc6188248c7dcc3a297e10aa07fbfe33bc9c2a88b6753542824070f80ab"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gemini-3.1-pro-preview/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "365f0778221cbef0ad42915886ec5ee3fc030bd680482f1637321ab6b66cee3e"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gemini-3.1-pro-preview/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "9e27314e11a8f57aeb8ef808b2ec0b4863ad849de7aed6ded113ed3e32a49833"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gemini-3-flash-preview/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "365f0778221cbef0ad42915886ec5ee3fc030bd680482f1637321ab6b66cee3e"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gemini-3-flash-preview/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "9e27314e11a8f57aeb8ef808b2ec0b4863ad849de7aed6ded113ed3e32a49833"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-397b-a17b-nothink/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "046687651b9b8a2e8eefa35f6de6539acb51ea47ba3fb0412af418e97dfcdd12"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-397b-a17b-nothink/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "8a161bd532e5731c4ebd7b9693b803967eff3ce9eab7c1a06b50fee50fe51a65"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/claude-opus-4-6/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "ac05542cd6113dc0b725d7aec78a8372fe4a6eb707cd57bc8932bd06427f7373"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/claude-opus-4-6/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "4d00ee5dd17eae707ab0b642037439ecda7b5594fde50263dcc6bd2714b75cbb"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/claude-sonnet-4-5/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "b0a1fe5dadd98744c479692c462c3d2685151faaf17846251361ad3e45e4528c"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/claude-sonnet-4-5/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "48c3017588c51e080e6f06e0602cc3da3d9e51ab30c9babbe276fe7860946fc2"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-35b-a3b-nothink/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "7c2d5b01041f94e0d031d05c954fe8cd238c8977df53a08a4e6e457af4659667"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-35b-a3b-nothink/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "362f648452d5e3c176a32c108f1db0968ecaaf46d0385076b81dbf65b0f4899c"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gpt-5.4/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "fedb1feacde96753585163bb86dd39cbb6bb55cda474f3cc442eb9a8843e3119"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gpt-5.4/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "20e14b11683af7e130bc62cf73be6db361a69be617a20ffd248a94f639ee7f4c"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gemini-3.1-flash-lite-preview/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "365f0778221cbef0ad42915886ec5ee3fc030bd680482f1637321ab6b66cee3e"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gemini-3.1-flash-lite-preview/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "9e27314e11a8f57aeb8ef808b2ec0b4863ad849de7aed6ded113ed3e32a49833"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-9b-nothink/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "89693c1db3f13b6d592d87b3013de6c5cd2181be2766a8d82efe582a32d57b80"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-9b-nothink/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "dfd73859be3d758f48fd49ed3de0c8dff69346cd899a015a4fbf5f7764df2f96"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/claude-haiku-4-5/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "37c895076bbc955a31c6e4bbcf9f87034bebfc4a33c614045f07665bf6b2a809"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/claude-haiku-4-5/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "8523efc93c7d6d931595e0baf5df3d658c3df2d0dcb04fe3881fde07176f4fee"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-4b-nothink/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "253366e5cf6111254858c499cbfda7a0b4b609ea08a330152619034b846e9b44"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/qwen3.5-4b-nothink/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "88a157db8a30c1b89ba4549324632d56933764f29588d15e2ba714cb3d390d25"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gpt-5.4-mini/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "af8542278c9080c0f6ff56b7474f54035a5685b6c639a4aec33ca9dbdc782307"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gpt-5.4-mini/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "200f367acd43d170e0ed8575c3cccd76836d8105e9149e8f0674d9849ad9f7a8"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gpt-5.4-nano/direct/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "d096919c7d5b24472449c5de2a08895944e5500d3ea3fc94676dad9200fbe5b5"
+  },
+  {
+    "file": "configs/request_templates.json",
+    "source": "figure7_four_conditions_13models_20261023/templates/gpt-5.4-nano/gold_text/00000212_LAYOUT_2_edit_0.json",
+    "source_kind": "current_payload_skeleton",
+    "source_sha256": "fb7c98b795db800324608a4565f4ca9a8136e1cb196e750662c1b99181d137ae"
+  }
+]

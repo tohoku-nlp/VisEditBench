@@ -1,0 +1,36 @@
+# Run commands from the repository root. Requests embed local PNG images.
+[metadata_fields]
+key = "key"
+org_image_path = "org_image_path"
+visual_instruction_image_path = "visual_instruction_image_path"
+org_tikz_code_path = "org_tikz_code_path"
+text_instruction = "text_instruction"
+
+[[configs]]
+name = "gemini31pro_visual"
+provider = "google"
+model = "gemini-3.1-pro-preview"
+system_instruction_type = "visual_instruction_w_org_image_w_org_tikz"
+metadata_path = "data/metadata/edit_metadata.jsonl"
+save_path = "runs/{name}/input.jsonl"
+append = false
+
+[[configs]]
+name = "gpt54_visual"
+provider = "openai"
+model = "gpt-5.4"
+system_instruction_type = "visual_instruction_w_org_image_w_org_tikz"
+metadata_path = "data/metadata/edit_metadata.jsonl"
+save_path = "runs/{name}/input.jsonl"
+append = false
+image_detail = "auto"
+
+[[configs]]
+name = "claude_sonnet45_visual"
+provider = "anthropic"
+model = "claude-sonnet-4-5-20250929"
+system_instruction_type = "visual_instruction_w_org_image_w_org_tikz"
+metadata_path = "data/metadata/edit_metadata.jsonl"
+save_path = "runs/{name}/input.jsonl"
+append = false
+thinking = false

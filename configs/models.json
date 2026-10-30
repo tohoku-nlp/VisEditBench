@@ -1,0 +1,507 @@
+{
+  "gemini-3.1-pro-preview": {
+    "label": "Gemini 3.1 Pro Preview",
+    "backend": "google",
+    "api_model": "gemini-3.1-pro-preview",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "gemini_3_1_pro_preview",
+    "access": "closed",
+    "revision": null
+  },
+  "gemini-3-flash-preview": {
+    "label": "Gemini 3 Flash Preview",
+    "backend": "google",
+    "api_model": "gemini-3-flash-preview",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "gemini_3_flash_preview",
+    "access": "closed",
+    "revision": null
+  },
+  "qwen3.5-397b-a17b-nothink": {
+    "label": "Qwen3.5-397B-A17B",
+    "backend": "openrouter",
+    "api_model": "qwen/qwen3.5-397b-a17b",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "qwen3_5_397b",
+    "access": "open",
+    "revision": null
+  },
+  "claude-opus-4-6": {
+    "label": "Claude Opus 4.6",
+    "backend": "anthropic",
+    "api_model": "claude-opus-4-6",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "claude_opus_4_6",
+    "access": "closed",
+    "revision": null
+  },
+  "claude-sonnet-4-5": {
+    "label": "Claude Sonnet 4.5",
+    "backend": "anthropic",
+    "api_model": "claude-sonnet-4-5",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "claude_sonnet_4_5",
+    "access": "closed",
+    "revision": null
+  },
+  "qwen3.5-35b-a3b-nothink": {
+    "label": "Qwen3.5-35B-A3B",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3.5-35B-A3B",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "qwen3_5_35b_a3b",
+    "access": "open",
+    "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 128000,
+      "tensor_parallel_size": 2,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    }
+  },
+  "gpt-5.4": {
+    "label": "GPT-5.4",
+    "backend": "openai",
+    "api_model": "gpt-5.4",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "gpt_5_4",
+    "access": "closed",
+    "revision": null
+  },
+  "gemini-3.1-flash-lite-preview": {
+    "label": "Gemini 3.1 Flash Lite Preview",
+    "backend": "google",
+    "api_model": "gemini-3.1-flash-lite-preview",
+    "enabled": false,
+    "profile": "main",
+    "figure7": true,
+    "blocked_reason": "gemini-3.1-flash-lite-previewは提供終了。代替を勝手に選択しません。",
+    "table_slug": "gemini_3_1_flash_lite_preview",
+    "access": "closed",
+    "revision": null
+  },
+  "qwen3.5-9b-nothink": {
+    "label": "Qwen3.5-9B",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3.5-9B",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "qwen3_5_9b",
+    "access": "open",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 128000,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto"
+    }
+  },
+  "claude-haiku-4-5": {
+    "label": "Claude Haiku 4.5",
+    "backend": "anthropic",
+    "api_model": "claude-haiku-4-5",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "claude_haiku_4_5",
+    "access": "closed",
+    "revision": null
+  },
+  "qwen3.5-4b-nothink": {
+    "label": "Qwen3.5-4B",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3.5-4B",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "qwen3_5_4b",
+    "access": "open",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 128000,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto"
+    }
+  },
+  "gpt-5.4-mini": {
+    "label": "GPT-5.4-mini",
+    "backend": "openai",
+    "api_model": "gpt-5.4-mini",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "gpt_5_4_mini",
+    "access": "closed",
+    "revision": null
+  },
+  "gpt-5.4-nano": {
+    "label": "GPT-5.4-nano",
+    "backend": "openai",
+    "api_model": "gpt-5.4-nano",
+    "enabled": true,
+    "profile": "main",
+    "figure7": true,
+    "table_slug": "gpt_5_4_nano",
+    "access": "closed",
+    "revision": null
+  },
+  "qwen3.5-4b": {
+    "label": "Qwen3.5-4B Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3.5-4B",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_5_4b_thinking",
+    "access": "open",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3.5-9b": {
+    "label": "Qwen3.5-9B Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3.5-9B",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_5_9b_thinking",
+    "access": "open",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3.5-35b-a3b": {
+    "label": "Qwen3.5-35B-A3B Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3.5-35B-A3B",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_5_35b_a3b_thinking",
+    "access": "open",
+    "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3.5-397b-a17b": {
+    "label": "Qwen3.5-397B-A17B Thinking",
+    "backend": "openrouter",
+    "api_model": "qwen/qwen3.5-397b-a17b",
+    "enabled": true,
+    "profile": "historical_openrouter",
+    "figure7": false,
+    "table_slug": "qwen3_5_397b_thinking",
+    "access": "open",
+    "revision": null,
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-4b-instruct": {
+    "label": "Qwen3-VL-4B-Instruct",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-4B-Instruct",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_4b_instruct",
+    "access": "open",
+    "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-4b-thinking": {
+    "label": "Qwen3-VL-4B-Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-4B-Thinking",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_4b_thinking",
+    "access": "open",
+    "revision": null,
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-8b-instruct": {
+    "label": "Qwen3-VL-8B-Instruct",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-8B-Instruct",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_8b_instruct",
+    "access": "open",
+    "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-8b-thinking": {
+    "label": "Qwen3-VL-8B-Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-8B-Thinking",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_8b_thinking",
+    "access": "open",
+    "revision": null,
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-30b-a3b-instruct": {
+    "label": "Qwen3-VL-30B-A3B-Instruct",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_30b_a3b_instruct",
+    "access": "open",
+    "revision": "9c4b90e1e4ba969fd3b5378b57d966d725f1b86c",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-30b-a3b-thinking": {
+    "label": "Qwen3-VL-30B-A3B-Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_30b_a3b_thinking",
+    "access": "open",
+    "revision": "d0ed0380729be07a546fdefafbb4fe411f341e92",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-235b-a22b-instruct": {
+    "label": "Qwen3-VL-235B-A22B-Instruct",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_235b_a22b_instruct",
+    "access": "open",
+    "revision": null,
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "qwen3-vl-235b-a22b-thinking": {
+    "label": "Qwen3-VL-235B-A22B-Thinking",
+    "backend": "vllm",
+    "api_model": "Qwen/Qwen3-VL-235B-A22B-Thinking",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "qwen3_vl_235b_a22b_thinking",
+    "access": "open",
+    "revision": null,
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "gemma4-e4b-it": {
+    "label": "Gemma-4-E4B-IT",
+    "backend": "vllm",
+    "api_model": "google/gemma-4-E4B-it",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "gemma_4_E4B_it",
+    "access": "open",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "gemma4-31b-it": {
+    "label": "Gemma-4-31B-IT",
+    "backend": "vllm",
+    "api_model": "google/gemma-4-31B-it",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "gemma_4_31B_it",
+    "access": "open",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "glm-4-5v": {
+    "label": "GLM-4.5V",
+    "backend": "vllm",
+    "api_model": "zai-org/GLM-4.5V",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "glm_4_5v",
+    "access": "open",
+    "revision": null,
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "glm-4-6v": {
+    "label": "GLM-4.6V",
+    "backend": "vllm",
+    "api_model": "zai-org/GLM-4.6V",
+    "enabled": true,
+    "profile": "submission",
+    "figure7": false,
+    "table_slug": "glm_4_6v",
+    "access": "open",
+    "revision": null,
+    "server": {
+      "dtype": "auto",
+      "max_model_len": 262144,
+      "tensor_parallel_size": 1,
+      "gpu_memory_utilization": 0.7,
+      "generation_config": "auto",
+      "seed": 42
+    },
+    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+  },
+  "gemini-3-pro-image-preview": {
+    "label": "Gemini 3 Pro Image",
+    "backend": "google_image",
+    "api_model": "gemini-3-pro-image-preview",
+    "enabled": true,
+    "table_slug": "gemini-3-pro-image-preview",
+    "access": "image",
+    "profile": "direct_image"
+  },
+  "gpt-image-1.5": {
+    "label": "GPT Image 1.5",
+    "backend": "openai_image",
+    "api_model": "gpt-image-1.5",
+    "enabled": true,
+    "table_slug": "gpt-image-1.5",
+    "access": "image",
+    "profile": "direct_image"
+  },
+  "qwen-image-edit": {
+    "label": "Qwen-Image-Edit",
+    "backend": "diffusers",
+    "api_model": "Qwen/Qwen-Image-Edit-2511",
+    "enabled": true,
+    "table_slug": "qwen-image-edit",
+    "access": "image",
+    "profile": "direct_image"
+  }
+}

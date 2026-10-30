@@ -1,0 +1,13 @@
+[[configs]]
+name = "gemini31pro_visual_image_eval"
+judge_provider = "google"
+judge_model = "gemini-3.1-pro-preview"
+# Image-level evaluation uses original, instruction, and generated images.
+judge_input_type = "w_org_image"
+edited_model_type = "gemini-3.1-pro-preview"
+edited_input_type = "w_org_image_w_org_tikz"
+metadata_path = "runs/gemini31pro_visual/metadata.jsonl"
+save_path = "runs/{name}/input.jsonl"
+append = false
+temperature = 0.0
+include_important_notes = true
