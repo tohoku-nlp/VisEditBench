@@ -94,7 +94,7 @@ def freeze(workspace: Path, repository: Path) -> None:
         spec.update(table_slug=table_slug, label=label, access=access)
         spec["revision"] = revisions.get(spec["api_model"])
         if spec["backend"] == "vllm":
-            spec["server"] = dict(dtype="auto", max_model_len=262144 if spec["profile"] == "submission" else 128000, tensor_parallel_size=1,
+            spec["server"] = dict(dtype="auto", max_model_len=128000, tensor_parallel_size=1,
                 gpu_memory_utilization=0.7, generation_config="auto")
             if slug.endswith("-nothink"):
                 if "35b-" in slug:
@@ -102,7 +102,7 @@ def freeze(workspace: Path, repository: Path) -> None:
             else:
                 spec["server"]["seed"] = 42
             if spec["profile"] == "submission":
-                spec["runtime_evidence"] = "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+                spec["runtime_evidence"] = "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
     legacy = {}
     # 397B Thinkingは保存済みの主実験TOMLのOpenRouter指定に合わせる。
     thinking_397 = models["qwen3.5-397b-a17b"]

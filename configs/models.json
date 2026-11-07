@@ -177,13 +177,13 @@
     "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3.5-9b": {
     "label": "Qwen3.5-9B Thinking",
@@ -197,13 +197,13 @@
     "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3.5-35b-a3b": {
     "label": "Qwen3.5-35B-A3B Thinking",
@@ -217,13 +217,13 @@
     "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3.5-397b-a17b": {
     "label": "Qwen3.5-397B-A17B Thinking",
@@ -249,13 +249,13 @@
     "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-4b-thinking": {
     "label": "Qwen3-VL-4B-Thinking",
@@ -269,13 +269,13 @@
     "revision": null,
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-8b-instruct": {
     "label": "Qwen3-VL-8B-Instruct",
@@ -289,13 +289,13 @@
     "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-8b-thinking": {
     "label": "Qwen3-VL-8B-Thinking",
@@ -309,13 +309,13 @@
     "revision": null,
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-30b-a3b-instruct": {
     "label": "Qwen3-VL-30B-A3B-Instruct",
@@ -329,13 +329,13 @@
     "revision": "9c4b90e1e4ba969fd3b5378b57d966d725f1b86c",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-30b-a3b-thinking": {
     "label": "Qwen3-VL-30B-A3B-Thinking",
@@ -349,13 +349,13 @@
     "revision": "d0ed0380729be07a546fdefafbb4fe411f341e92",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-235b-a22b-instruct": {
     "label": "Qwen3-VL-235B-A22B-Instruct",
@@ -369,13 +369,13 @@
     "revision": null,
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "qwen3-vl-235b-a22b-thinking": {
     "label": "Qwen3-VL-235B-A22B-Thinking",
@@ -389,13 +389,13 @@
     "revision": null,
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "gemma4-e4b-it": {
     "label": "Gemma-4-E4B-IT",
@@ -409,13 +409,13 @@
     "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "gemma4-31b-it": {
     "label": "Gemma-4-31B-IT",
@@ -429,13 +429,13 @@
     "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "glm-4-5v": {
     "label": "GLM-4.5V",
@@ -449,13 +449,13 @@
     "revision": null,
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "glm-4-6v": {
     "label": "GLM-4.6V",
@@ -469,13 +469,13 @@
     "revision": null,
     "server": {
       "dtype": "auto",
-      "max_model_len": 262144,
+      "max_model_len": 128000,
       "tensor_parallel_size": 1,
       "gpu_memory_utilization": 0.7,
       "generation_config": "auto",
       "seed": 42
     },
-    "runtime_evidence": "Submission fallback: 128000 output budget with a larger context. Validate native model context/GPU capacity; historical per-model server arguments were not fully preserved."
+    "runtime_evidence": "Public reproduction setting: 128000-token context. Historical per-model server arguments were not fully preserved."
   },
   "gemini-3-pro-image-preview": {
     "label": "Gemini 3 Pro Image",

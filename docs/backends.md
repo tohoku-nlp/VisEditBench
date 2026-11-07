@@ -8,10 +8,12 @@ Run commands from the repository root after preparing the data. The commands her
 
 Install vLLM in a separate CUDA-compatible environment following the [official installation guide](https://docs.vllm.ai/en/latest/getting_started/installation/). The optional Apptainer recipes and launch scripts are in `editing/vllm/` and `evaluation_image-level/vllm/`. Adjust GPU allocation, model paths, and context length for your hardware. They are single-host scripts, not cluster job submissions.
 
+The public model registry and both container entrypoints use `--max-model-len 128000`, the combined input and output context limit. Existing containers must be rebuilt to pick up the entrypoint change. Output token settings are separate and remain unchanged.
+
 Start a server, for example:
 
 ```bash
-vllm serve Qwen/Qwen3-VL-8B-Instruct --host 127.0.0.1 --port 8000
+vllm serve Qwen/Qwen3-VL-8B-Instruct --host 127.0.0.1 --port 8000 --max-model-len 128000
 ```
 
 In the repository's Python environment, run:

@@ -7,6 +7,7 @@ SEED=$4
 PORT=$5
 
 vllm serve "${MODEL}" \
+    --max-model-len 128000 \
     --tensor-parallel-size "${TENSOR_PARALLEL_SIZE}" \
     --dtype "${DTYPE}" \
     --seed "${SEED}" \

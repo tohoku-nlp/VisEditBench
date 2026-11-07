@@ -18,6 +18,7 @@ Integration changes:
 - Rendering checks the compiler exit status, removes stale outputs on overwrite, and disables shell escape. A rendering failure cannot reuse an earlier PDF/PNG as a new success. Documents requiring shell escape will fail under this configuration; report that setting with CFR.
 - `.env` loading is limited to this repository's own `.env`. Previewing requests does not overwrite saved request JSONL. `--preview` is restricted to request generation.
 - Local vLLM readiness checks use `/health`.
+- The public vLLM model registry and editing/evaluation container entrypoints use a 128,000-token context limit (input plus output). This public configuration does not establish the historical server setting for every model. Output token settings are preserved separately.
 - Code evaluation skips explicitly recorded missing generations and reports them in the log. Non-compiling generated code is still available for code evaluation.
 
 ## Settings retained from the submission
