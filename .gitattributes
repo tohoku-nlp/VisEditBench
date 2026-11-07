@@ -1,0 +1,2 @@
+# Preserve archived input bytes (including CSV line endings and TikZ spaces).
+reproduction/** -text -whitespace
