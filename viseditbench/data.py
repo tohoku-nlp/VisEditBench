@@ -17,6 +17,7 @@ IMAGE_FIELDS = {
     "visual_instructions": ("visual_instruction_file_name", "visual_instruction", "visual_instruction_image_path"),
     "target_images": ("target_image_file_name", "target_image", "target_image_path"),
 }
+BUNDLED_SUPPLEMENT = Path(__file__).resolve().parents[1] / "reproduction"
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -68,20 +69,48 @@ def portable_path(path: Path, root: Path) -> str:
         return str(path.resolve())
 
 
+def benchmark_identity(rows: list[dict[str, Any]], *, metadata: Path | None = None,
+                       snapshot: Path | None = None) -> str:
+    """列順やlicenseの追加に依存せず、ID・コード・元情報・画像bytesを固定する。"""
+    records = []
+    prepared_fields = ("org_image_path", "visual_instruction_image_path", "target_image_path")
+    for row in rows:
+        record = {"id": row.get("id") or row.get("key"), "uri": row.get("uri"),
+                  "source_tikz": row["source_tikz"], "target_tikz": row["target_tikz"],
+                  "edit_type": row["edit_type"], "edit_operation": int(row["edit_operation"])}
+        if metadata is not None:
+            images = [resolve_asset(row, fields, metadata, snapshot) for fields in IMAGE_FIELDS.values()]
+        else:
+            images = [Path(row[field]) for field in prepared_fields]
+        record["images_sha256"] = [digest(path) for path in images]
+        records.append(record)
+    canonical = json.dumps(sorted(records, key=lambda row: row["id"]), ensure_ascii=False,
+                           sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def verify_benchmark(supplement: dict[str, Any], metadata_sha256: str, identity_sha256: str | None) -> None:
+    """新形式は実内容、旧形式は元JSONLのhashで対象データとの一致を確認する。"""
+    expected_identity = supplement.get("base_benchmark_sha256")
+    if expected_identity:
+        if expected_identity != identity_sha256:
+            raise ValueError("Supplement targets different benchmark content (IDs, code, provenance, or images)")
+    elif supplement.get("base_metadata_sha256") and supplement["base_metadata_sha256"] != metadata_sha256:
+        raise ValueError("Supplement targets a different benchmark metadata snapshot")
+
+
 def prepare(snapshot: Path, data_dir: Path, *, repo_id: str = REPO_ID, revision: str = "local",
             limit: int | None = None, force: bool = False,
-            text_instructions: Path | None = None) -> dict[str, Any]:
+            text_instructions: Path | None = None, supplement_source: Path | None = None) -> dict[str, Any]:
     """画像を原寸コピーし、コードを展開して全バックエンド共通のメタデータを作る。"""
     from PIL import Image
 
     if limit is not None and limit < 1:
         raise ValueError("--limit must be positive")
     metadata = find_metadata(snapshot)
-    supplement = next((p for p in [snapshot / "reproduction", metadata.parent / "reproduction"] if p.is_dir()), None)
+    supplement = supplement_source or next((p for p in [snapshot / "reproduction", metadata.parent / "reproduction"] if p.is_dir()), None)
     if supplement:
         supplemental_manifest = verify_supplement(supplement)
-        if supplemental_manifest.get("base_metadata_sha256") and supplemental_manifest["base_metadata_sha256"] != digest(metadata):
-            raise ValueError("The reproduction supplement targets a different benchmark metadata snapshot")
     if supplement and text_instructions is None and (supplement / "gold_text.jsonl").is_file():
         text_instructions = supplement / "gold_text.jsonl"
     rows = read_jsonl(metadata)
@@ -98,6 +127,9 @@ def prepare(snapshot: Path, data_dir: Path, *, repo_id: str = REPO_ID, revision:
         seen.add(key)
     if not rows:
         raise ValueError("Dataset metadata is empty")
+    identity = benchmark_identity(rows, metadata=metadata, snapshot=snapshot)
+    if supplement:
+        verify_benchmark(supplemental_manifest, digest(metadata), identity)
     if limit:
         rows = rows[:limit]
     destination = data_dir / "metadata/edit_metadata.jsonl"
@@ -157,11 +189,14 @@ def prepare(snapshot: Path, data_dir: Path, *, repo_id: str = REPO_ID, revision:
         write_jsonl(path, normalized)
         hashes[portable_path(path, root)] = digest(path)
     manifest = {"repo_id": repo_id, "revision": revision, "samples": len(rows), "full_dataset_samples": len(seen),
-        "metadata_sha256": digest(metadata), "text_instructions_present": sum(bool(r.get("text_instruction")) for r in normalized),
+        "metadata_sha256": digest(metadata), "benchmark_identity_sha256": identity,
+        "text_instructions_present": sum(bool(r.get("text_instruction")) for r in normalized),
         "files_sha256": hashes}
     (data_dir/"dataset_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     if supplement:
         install_supplement(supplement, data_dir / "reproduction")
+        manifest["reproduction_manifest_sha256"] = digest(data_dir / "reproduction/manifest.json")
+        (data_dir/"dataset_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     return manifest
 
 
@@ -179,7 +214,7 @@ def verify_supplement(source: Path) -> dict[str, Any]:
 
 
 def install_supplement(source: Path, destination: Path) -> dict[str, Any]:
-    """HFの再現用追加データを全件ハッシュ検証してからローカルへ配置する。"""
+    """再現用追加データを全件ハッシュ検証してからローカルへ配置する。"""
     manifest = verify_supplement(source)
     for name in manifest["files_sha256"]:
         relative = PurePosixPath(name)
@@ -199,8 +234,7 @@ def add_supplement(source: Path, data_dir: Path) -> dict[str, Any]:
     supplemental = verify_supplement(source)
     manifest_path = data_dir / "dataset_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if supplemental.get("base_metadata_sha256") and supplemental["base_metadata_sha256"] != manifest["metadata_sha256"]:
-        raise ValueError("Supplement targets a different benchmark snapshot")
+    verify_benchmark(supplemental, manifest["metadata_sha256"], manifest.get("benchmark_identity_sha256"))
     texts = {}
     for row in read_jsonl(source / "gold_text.jsonl"):
         key, text = row["id"], row["text_instruction"]
@@ -294,6 +328,8 @@ def main() -> None:
         sub.add_argument("--limit", type=int)
         sub.add_argument("--force", action="store_true")
         sub.add_argument("--text-instructions", type=Path)
+        sub.add_argument("--supplement", type=Path, help="Use an explicit reproduction supplement instead of the bundled data")
+        sub.add_argument("--without-bundled-supplement", action="store_true", help="Prepare a base-only snapshot without the repository supplement")
         if command == "prepare":
             sub.add_argument("--snapshot", type=Path, required=True)
     sub = commands.add_parser("attach")
@@ -316,8 +352,14 @@ def main() -> None:
             snapshot, revision = download(args.repo_id, args.revision, args.data_dir)
         else:
             snapshot, revision = args.snapshot, args.revision
+        if args.supplement and args.without_bundled_supplement:
+            parser.error("--supplement and --without-bundled-supplement cannot be combined")
+        source = args.supplement
+        if source is None and not args.without_bundled_supplement and BUNDLED_SUPPLEMENT.is_dir():
+            source = BUNDLED_SUPPLEMENT
         result = prepare(snapshot, args.data_dir, repo_id=args.repo_id, revision=revision,
-                         limit=args.limit, force=args.force, text_instructions=args.text_instructions)
+                         limit=args.limit, force=args.force, text_instructions=args.text_instructions,
+                         supplement_source=source)
         result = {k: v for k, v in result.items() if k != "files_sha256"}
     elif args.command == "attach":
         result = attach(args.metadata, args.output, args.model, args.input_type, args.tex_dir, args.image_dir)

@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage{tikz-qtree}
+\usepackage{subcaption}
+
+\usepackage{tikz}
+\begin{document}
+
+\begin{figure}[htbp]
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \Tree[.N 
+            [.PV pazirāi ]
+            [.N 
+            [.V kon- ] ande ] ]
+        \end{tikzpicture} 
+        \caption{First subpicture}
+        \label{fig:myfirstsubfig}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \Tree[.N 
+            [.V 
+            [.PV pazirāi ]
+            [.V kon- ] ] ande ] 
+        \end{tikzpicture}
+        \caption{Second subpicture}
+        \label{fig:mysecondsubfig}
+    \end{subfigure}
+\end{figure}
+
+\end{document}

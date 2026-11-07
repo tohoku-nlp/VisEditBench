@@ -1,0 +1,17 @@
+model,display_name,condition,n,FSR_percent,source
+gemini-3.1-pro-preview,Gemini 3.1 Pro,visual_instruction_w_org_image_w_org_tikz,100,79.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gemini-3.1-pro-preview,Gemini 3.1 Pro,visual_instruction_w_org_tikz,100,77.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gemini-3.1-pro-preview,Gemini 3.1 Pro,visual_instruction_w_org_image,99,68.68686868686868,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gemini-3.1-pro-preview,Gemini 3.1 Pro,visual_instruction,98,47.95918367346938,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+Qwen3.5-397B-thinking,Qwen3.5-397B-A17B Thinking,visual_instruction_w_org_image_w_org_tikz,100,71.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+Qwen3.5-397B-thinking,Qwen3.5-397B-A17B Thinking,visual_instruction_w_org_tikz,98,56.12244897959183,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+Qwen3.5-397B-thinking,Qwen3.5-397B-A17B Thinking,visual_instruction_w_org_image,97,18.556701030927837,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+Qwen3.5-397B-thinking,Qwen3.5-397B-A17B Thinking,visual_instruction,93,7.526881720430108,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+claude-opus-4.6,Claude Opus 4.6,visual_instruction_w_org_image_w_org_tikz,100,65.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+claude-opus-4.6,Claude Opus 4.6,visual_instruction_w_org_tikz,100,60.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+claude-opus-4.6,Claude Opus 4.6,visual_instruction_w_org_image,99,1.0101010101010102,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+claude-opus-4.6,Claude Opus 4.6,visual_instruction,96,3.125,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gpt-5.4,GPT-5.4,visual_instruction_w_org_image_w_org_tikz,100,52.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gpt-5.4,GPT-5.4,visual_instruction_w_org_tikz,100,51.0,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gpt-5.4,GPT-5.4,visual_instruction_w_org_image,99,5.05050505050505,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv
+gpt-5.4,GPT-5.4,visual_instruction,99,4.040404040404041,paper/ablation_input_modarity/analysis_outputs/ablation_input_modality_modelwise_summary.csv

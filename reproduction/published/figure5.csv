@@ -1,0 +1,40 @@
+model,display_name,operation_count,n,FSR_count,FSR_percent,previous_FSR_percent,delta_percentage_points,updated,source
+gemini_3_1_pro_preview,Gemini 3.1 Pro,1,236,197,83.47457627118644,83.47457627118644,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_1_pro_preview,Gemini 3.1 Pro,2,234,196,83.76068376068376,83.76068376068376,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_1_pro_preview,Gemini 3.1 Pro,3,224,187,83.48214285714286,83.48214285714286,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_flash_preview,Gemini 3 Flash,1,236,170,72.03389830508475,72.03389830508475,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_flash_preview,Gemini 3 Flash,2,234,170,72.64957264957265,72.64957264957265,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_flash_preview,Gemini 3 Flash,3,224,158,70.53571428571429,70.53571428571429,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_opus_4_6,Claude Opus 4.6,1,236,155,65.67796610169492,65.67796610169492,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_opus_4_6,Claude Opus 4.6,2,234,146,62.39316239316239,62.39316239316239,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_opus_4_6,Claude Opus 4.6,3,224,115,51.33928571428571,51.33928571428571,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4,GPT-5.4,1,236,127,53.813559322033896,53.813559322033896,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4,GPT-5.4,2,234,116,49.572649572649574,49.572649572649574,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4,GPT-5.4,3,224,85,37.94642857142857,37.94642857142857,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_1_flash_lite_preview,Gemini 3.1 Flash Lite,1,236,121,51.271186440677965,51.271186440677965,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_1_flash_lite_preview,Gemini 3.1 Flash Lite,2,234,106,45.2991452991453,45.2991452991453,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gemini_3_1_flash_lite_preview,Gemini 3.1 Flash Lite,3,224,84,37.5,37.5,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_sonnet_4_5,Claude Sonnet 4.5,1,236,114,48.30508474576271,48.30508474576271,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_sonnet_4_5,Claude Sonnet 4.5,2,234,104,44.44444444444444,44.44444444444444,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_sonnet_4_5,Claude Sonnet 4.5,3,224,76,33.92857142857143,33.92857142857143,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+qwen3_5_397b,Qwen3.5-397B-A17B,1,236,117,49.57627118644068,72.03389830508475,-22.45762711864407,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_397b,Qwen3.5-397B-A17B,2,234,87,37.17948717948718,61.53846153846154,-24.358974358974358,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_397b,Qwen3.5-397B-A17B,3,224,60,26.785714285714285,59.82142857142857,-33.035714285714285,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_35b_a3b,Qwen3.5-35B-A3B,1,236,99,41.94915254237288,60.16949152542372,-18.220338983050844,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_35b_a3b,Qwen3.5-35B-A3B,2,234,72,30.76923076923077,50.427350427350426,-19.658119658119656,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_35b_a3b,Qwen3.5-35B-A3B,3,224,45,20.089285714285715,45.982142857142854,-25.89285714285714,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+claude_haiku_4_5,Claude Haiku 4.5,1,236,87,36.86440677966102,36.86440677966102,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_haiku_4_5,Claude Haiku 4.5,2,234,54,23.076923076923077,23.076923076923077,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+claude_haiku_4_5,Claude Haiku 4.5,3,224,34,15.178571428571427,15.178571428571427,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4_mini,GPT-5.4-mini,1,236,56,23.728813559322035,23.728813559322035,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4_mini,GPT-5.4-mini,2,234,44,18.803418803418804,18.803418803418804,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4_mini,GPT-5.4-mini,3,224,26,11.607142857142858,11.607142857142858,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+qwen3_5_9b,Qwen3.5-9B,1,236,54,22.88135593220339,47.03389830508475,-24.152542372881356,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_9b,Qwen3.5-9B,2,234,28,11.965811965811966,39.31623931623932,-27.350427350427353,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_9b,Qwen3.5-9B,3,224,16,7.142857142857142,29.464285714285715,-22.321428571428573,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_4b,Qwen3.5-4B,1,236,55,23.30508474576271,38.13559322033898,-14.830508474576273,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_4b,Qwen3.5-4B,2,234,20,8.547008547008547,25.64102564102564,-17.09401709401709,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+qwen3_5_4b,Qwen3.5-4B,3,224,10,4.464285714285714,19.196428571428573,-14.732142857142858,True,experiments/qwen35_nonthinking_gemini31pro_20261018/image_evaluation_gemini31pro/scores.csv
+gpt_5_4_nano,GPT-5.4-nano,1,236,18,7.627118644067797,7.627118644067797,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4_nano,GPT-5.4-nano,2,234,9,3.8461538461538463,3.8461538461538463,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv
+gpt_5_4_nano,GPT-5.4-nano,3,224,5,2.232142857142857,2.232142857142857,0.0,False,paper/table5/analysis_outputs/complexity_metrics_per_model.csv

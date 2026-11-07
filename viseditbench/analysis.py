@@ -123,16 +123,20 @@ def human_statistics(ratings: list[dict], auto: list[dict], *, code: bool = Fals
     return result
 
 
-def rank_statistics(first: list[dict], second: list[dict]) -> list[dict]:
-    """同じ29モデルを対応付け、百分率の誤差を正規化して順位相関を求める。"""
+def rank_statistics(first: list[dict], second: list[dict], *, printed_values: bool = False) -> list[dict]:
+    """同じモデルを対応付け、掲載値と丸め前の入力を区別して順位相関を求める。"""
     from scipy.stats import kendalltau, spearmanr
     left, right = {r["Model"]: r for r in first}, {r["Model"]: r for r in second}
+    if len(left) != len(first) or len(right) != len(second) or set(left) != set(right):
+        raise ValueError("Rank correlations require identical model sets without duplicates")
     models = sorted(set(left) & set(right))
     output = []
     for field in ["IA", "CP", "DR", "FSR", "IA_code", "CP_code", "OES_code"]:
         selected = [model for model in models if left[model].get(field) not in {None, ""} and right[model].get(field) not in {None, ""}]
-        x = [round(float(left[m][field]) * 694 / 100) if field == "FSR" else round(float(left[m][field]), 12) for m in selected]
-        y = [round(float(right[m][field]) * 694 / 100) if field == "FSR" else round(float(right[m][field]), 12) for m in selected]
+        if not selected:
+            continue
+        x = [float(left[m][field]) if printed_values else round(float(left[m][field]) * 694 / 100) if field == "FSR" else round(float(left[m][field]), 12) for m in selected]
+        y = [float(right[m][field]) if printed_values else round(float(right[m][field]) * 694 / 100) if field == "FSR" else round(float(right[m][field]), 12) for m in selected]
         sp, kd = spearmanr(x, y), kendalltau(x, y)
         output.append({"metric": field, "n_models": len(selected), "spearman_r": float(sp.statistic), "spearman_p": float(sp.pvalue),
                        "kendall_tau": float(kd.statistic), "kendall_p": float(kd.pvalue)})
@@ -235,13 +239,14 @@ def plot_published(name: str, rows: list[dict], destination: Path) -> None:
 
 
 def reproduce(data_dir: Path, output: Path) -> dict:
-    """HFから取得した追加データだけで、保存済みの論文結果を再分析する。"""
+    """同梱または取得した追加データで、保存済み結果と最新の順位相関を再分析する。"""
     import matplotlib
     matplotlib.use("Agg")
+    matplotlib.rcParams.update({"pdf.fonttype": 42, "ps.fonttype": 42})
     import matplotlib.pyplot as plt
     supplement = data_dir / "reproduction"
     if not (supplement / "manifest.json").is_file():
-        raise FileNotFoundError("HF reproduction supplement is missing. See docs/huggingface_release.md")
+        raise FileNotFoundError("Reproduction supplement is missing. Run dataset.py prepare/download or dataset.py supplement --source reproduction")
     manifest = read_json(supplement / "manifest.json")
     # ファイルをコピーし直さず、配布時の全ハッシュを検証する。
     install_supplement(supplement, supplement)
@@ -329,6 +334,13 @@ def reproduce(data_dir: Path, output: Path) -> dict:
     write_table(output / "tables/table9_human_sample_models.csv", [{"generated_model": model, "n_examples": n} for model, n in sorted(generated.items())])
     ranks = rank_statistics(read_csv(supplement / catalog["table2_main"]["file"]), read_csv(supplement / catalog["table5_alternative_judge"]["file"]))
     write_table(output / "tables/table6_judge_ranks_recomputed.csv", ranks)
+    update = supplement / "updates/20261107"
+    if (update / "table2_corrected_printed.csv").is_file():
+        updated_ranks = rank_statistics(read_csv(update / "table2_corrected_printed.csv"),
+                                        read_csv(update / "table5_updated_printed.csv"), printed_values=True)
+        write_table(output / "tables/table6_updated_20261107_recomputed.csv", updated_ranks)
+        for filename in ["table2_corrected_printed.csv", "table5_updated_printed.csv", "table6_correlations.csv", "table6.tex", "table5_replacement_rows.tex"]:
+            shutil.copy2(update / filename, output / "tables" / filename)
     figure9 = read_csv(supplement / catalog["figure9"]["file"])
     groups = defaultdict(dict)
     for row in figure9:
@@ -356,7 +368,9 @@ def reproduce(data_dir: Path, output: Path) -> dict:
     report = {"dataset_samples": len(metadata), "supplement_manifest_sha256": digest(supplement / "manifest.json"),
         "output": str(output), "figure9": contrasts, "main_models": len(recomputed), "human_examples": len(by_question),
         "human_ordinal_alpha": agreement, "code_judges_in_recomputed_correlation": len({r["judge"] for r in code}),
-        "coverage_gaps": gaps, "all_paper_artifacts_verified": not gaps,
+        "coverage_gaps": gaps, "archived_analysis_verified": not gaps, "fresh_inference_executed": False,
+        "stability": {"workflow_available": True, "archived_scores_included": stability.is_file(),
+                      "command": "paper.py stability-prepare --generation-job <completed_job.json> --seed 42 --output runs/stability"},
         "note": "Published CSV snapshots retain their recorded source versions. Recomputed tables are emitted separately; archived-score replay is distinct from a new API/GPU run."}
     save_json(output / "reproduction_report.json", report)
     links = [str(p.relative_to(output)) for p in sorted(output.rglob("*")) if p.is_file() and p.suffix in {".csv", ".pdf", ".json", ".diff"}]

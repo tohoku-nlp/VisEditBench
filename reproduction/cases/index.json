@@ -1,0 +1,131 @@
+[
+  {
+    "figure": 22,
+    "figure_number_in_20261017_pdf": 21,
+    "key": "00002110_LAYOUT_1_edit_0",
+    "model": "Claude Sonnet 4.5",
+    "condition": "w_org_image_w_org_tikz / visual",
+    "instruction": "Shift the position of the second syntax tree structure further to the right to increase the horizontal spacing between the two diagrams.",
+    "scores": {
+      "instruction_adherence": 1,
+      "content_preservation": 1,
+      "diagram_readability": 5
+    },
+    "paper_embedded_edited_image_pixel_match": [
+      "tmp/pdfs/figure22_24_code_analysis/paper-007.png"
+    ],
+    "source_code_lines": {
+      "original": 35,
+      "reference": 35,
+      "generated_visual": 13
+    },
+    "tree_counts": {
+      "original": 2,
+      "reference": 2,
+      "generated_visual": 1
+    },
+    "subfigure_counts": {
+      "original": 2,
+      "reference": 2,
+      "generated_visual": 0
+    },
+    "caption_counts": {
+      "original": 2,
+      "reference": 2,
+      "generated_visual": 0
+    },
+    "generated_tree_equals_original_second_tree": true,
+    "compile_checks": [
+      {
+        "role": "original",
+        "compiled": true,
+        "pdf": "tmp/pdfs/figure22_24_code_analysis/figure22_layout/original/diagram.pdf",
+        "png": "paper/ablation_layout_structure_failure_taxonomy/code_level_analysis_20261029/figure22_layout/render_original.png",
+        "warnings": [
+          "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right."
+        ],
+        "branch_y_pt": {}
+      },
+      {
+        "role": "reference",
+        "compiled": true,
+        "pdf": "tmp/pdfs/figure22_24_code_analysis/figure22_layout/reference/diagram.pdf",
+        "png": "paper/ablation_layout_structure_failure_taxonomy/code_level_analysis_20261029/figure22_layout/render_reference.png",
+        "warnings": [
+          "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right."
+        ],
+        "branch_y_pt": {}
+      },
+      {
+        "role": "generated_visual",
+        "compiled": true,
+        "pdf": "tmp/pdfs/figure22_24_code_analysis/figure22_layout/generated_visual/diagram.pdf",
+        "png": "paper/ablation_layout_structure_failure_taxonomy/code_level_analysis_20261029/figure22_layout/render_generated_visual.png",
+        "warnings": [
+          "Package shellesc Warning: Shell escape disabled on input line 73."
+        ],
+        "branch_y_pt": {}
+      },
+      {
+        "role": "diagnostic_repair",
+        "compiled": true,
+        "pdf": "tmp/pdfs/figure22_24_code_analysis/figure22_layout/diagnostic_repair/diagram.pdf",
+        "png": "paper/ablation_layout_structure_failure_taxonomy/code_level_analysis_20261029/figure22_layout/render_diagnostic_repair.png",
+        "warnings": [
+          "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right."
+        ],
+        "branch_y_pt": {}
+      }
+    ],
+    "files": {
+      "original.tex": "cases/figure22_layout/original.tex",
+      "reference.tex": "cases/figure22_layout/reference.tex",
+      "generated_visual.tex": "cases/figure22_layout/generated_visual.tex",
+      "original.png": "cases/figure22_layout/original.png",
+      "visual_instruction.png": "cases/figure22_layout/visual_instruction.png",
+      "generated_visual.png": "cases/figure22_layout/generated_visual.png"
+    }
+  },
+  {
+    "key": "00004572_STRUCTURE_2_edit_0",
+    "model": "Claude Opus 4.6",
+    "edit_operation_count": 2,
+    "instruction": "Re-route the feedback loop by changing the destination of the curved arrow so it points to 'A2. n = 1?' instead of 'A3. Divide', and set the line type of this arrow to dashed.",
+    "scores": {
+      "instruction_adherence": 2,
+      "content_preservation": 5,
+      "diagram_readability": 5
+    },
+    "feedback_edges": {
+      "original": {
+        "source": "mx-2-4",
+        "target": "mx-1-2",
+        "dashed": false
+      },
+      "reference": {
+        "source": "mx-2-4",
+        "target": "mx-2-1",
+        "dashed": true
+      },
+      "generated_visual": {
+        "source": "mx-2-4",
+        "target": "mx-2-3",
+        "dashed": true
+      }
+    },
+    "node_label_mapping": {
+      "mx-2-4": "A6. Low quotient?",
+      "mx-1-2": "A3. Divide",
+      "mx-2-1": "A2. n=1?",
+      "mx-2-3": "A4. Zero remainder?"
+    },
+    "files": {
+      "original.tex": "cases/structure_wrong_destination_opus46_00004572/original.tex",
+      "reference.tex": "cases/structure_wrong_destination_opus46_00004572/reference.tex",
+      "generated_visual.tex": "cases/structure_wrong_destination_opus46_00004572/generated_visual.tex",
+      "original.png": "cases/structure_wrong_destination_opus46_00004572/original.png",
+      "visual_instruction.png": "cases/structure_wrong_destination_opus46_00004572/visual_instruction.png",
+      "generated_visual.png": "cases/structure_wrong_destination_opus46_00004572/generated_visual.png"
+    }
+  }
+]

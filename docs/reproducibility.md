@@ -27,7 +27,7 @@ Prompt definitions remain in each backend rather than being silently unified; di
 
 The batch generation library retains the submission's provider-specific token/reasoning defaults. In particular, Claude generation uses an 8,192-token cap; the local vLLM and OpenRouter clients default to 128,000 tokens. These defaults must not be described as a uniform 128,000-token setting. Inspect and preserve the generated request JSONL to establish what was actually sent. A provider may impose a different effective limit or change defaults. Image/code judge configs explicitly set temperature to 0.0.
 
-The supplied TOML files demonstrate complete runs for Gemini, GPT, and Claude; they are not a manifest of every model/configuration and every updated result in the paper. All model IDs/settings and the target sample list must be recorded for any expanded reproduction. No historical provider result or seed-free Qwen3.5 experiment is claimed to be reproduced by these examples.
+The supplied TOML files demonstrate complete runs for Gemini, GPT, and Claude; the integrated model registry and `paper.py` cover the paper's experiment groups. All model IDs/settings and the target sample list must be recorded for a new run. Exact historical provider outputs are not guaranteed. The bundled `reproduction/updates/20261107/` preserves the updated Qwen3.5 evaluation inputs and rank correlations separately from earlier archived results.
 
 ## Input variants
 
@@ -58,7 +58,7 @@ python dataset.py prepare --snapshot data/raw_hf --force \
   --text-instructions /path/to/gold_text.jsonl
 ```
 
-This example describes the file format; its sentence is not a benchmark annotation. Supplemental IDs must belong to the dataset. Samples without supplied text remain without text. Gold instructions are never inferred from target image/code. The new reproduction supplement supplies the actual annotations, cohort IDs, and archived results; see the [HF release guide](huggingface_release.md). The four-condition implementation is in `viseditbench/workflow.py`.
+This example describes the file format; its sentence is not a benchmark annotation. Supplemental IDs must belong to the dataset. Samples without supplied text remain without text. Gold instructions are never inferred from target image/code. The bundled reproduction data supplies the actual annotations, cohort IDs, and archived results; see the [distribution guide](huggingface_release.md). The four-condition implementation is in `viseditbench/workflow.py`.
 
 ## Metrics and reporting
 

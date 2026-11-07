@@ -139,7 +139,7 @@ data/
 ├── image_metadata.jsonl
 ├── code_metadata.jsonl
 ├── dataset_manifest.json       # Dataset commit and file hashes
-└── reproduction/               # Reproduction supplement, when available
+└── reproduction/               # Verified copy of the bundled reproduction data
 ```
 
 Keep `data/dataset_manifest.json` with your results. To use the same dataset version again, pass its resolved commit with `--revision`.
@@ -152,9 +152,9 @@ python dataset.py prepare --snapshot /path/to/dataset-snapshot
 
 ### Reproduction supplement
 
-Gold-text comparisons, fixed ablation subsets, public human annotations, and archived-result analysis use the `reproduction/` supplement. When present in the snapshot, it is downloaded and verified automatically, and gold text is joined by sample ID.
+Gold-text comparisons, fixed ablation subsets, public human annotations, and archived-result analysis use the `reproduction/` directory bundled with this repository. `dataset.py download` and `dataset.py prepare` automatically verify and install it, and join the 694 gold instructions by sample ID. A separate Hugging Face supplement upload is not required.
 
-Some supplemental assets are pending release or have not been located. The base visual-instruction benchmark can be prepared independently; the additional workflows require their corresponding supplement files. See [release instructions](docs/huggingface_release.md) and [coverage](docs/coverage.md) for availability.
+Compatibility is checked using sample IDs, source/target TikZ, provenance, edit labels, and the bytes of all three PNG images. Adding a `license` column or changing JSON key/row ordering does not invalidate an otherwise identical benchmark. Changes to code or images are rejected. To prepare only the base data, pass `--without-bundled-supplement`; to select another supplement explicitly, pass `--supplement /path/to/reproduction`. See [coverage](docs/coverage.md).
 
 An existing local supplement can be installed with:
 
@@ -309,7 +309,7 @@ The registered backends include Gemini 3 Pro Image, GPT Image 1.5, and Qwen Imag
 
 ## Archived Results and Figures
 
-With the reproduction supplement installed, regenerate saved analyses without model inference:
+After data preparation, regenerate saved analyses without model inference or provider credentials:
 
 ```bash
 python paper.py reproduce --output runs/paper_reproduction
@@ -322,6 +322,7 @@ Open `runs/paper_reproduction/index.html`. Outputs include:
 - FSR, mean/std, direct-image edit-type/count analyses, human correlations and ordinal agreement, and judge-rank correlations.
 - Selected LAYOUT/STRUCTURE image comparisons and code differences.
 - `reproduction_report.json`, with input provenance and remaining coverage gaps.
+- The November 7 updated Table 2/5 inputs and recomputed Table 6, in separately named files. Earlier archived inputs retain their original versions.
 
 Archived-result analysis and new inference are separate workflows. Published snapshots keep their recorded versions; `_recomputed` outputs use the distributed ratings. See [coverage](docs/coverage.md) for missing original assets and differences between historical and new runs.
 
@@ -345,13 +346,14 @@ data/reproduction/human/
 | `content_preservation` | CP rating; 1–5 |
 | `diagram_readability` | DR rating; 1–5 |
 
-The prepared release contains 1,350 filtered ratings for 300 outputs. Rater labels are anonymized; worker/assignment IDs and free-text comments are excluded. Original five-repeat stability assets remain unavailable; the [stability workflow](docs/stability.md) accepts the original 50-output selection once provided.
+The bundled release contains 1,350 filtered ratings for 300 outputs. Rater labels are anonymized; worker/assignment IDs and free-text comments are excluded. The [stability workflow](docs/stability.md) selects 50 completed generated outputs with a fixed seed and evaluates the same images five times. It can be rerun from the public benchmark without a private historical selection file.
 
 ## Repository Structure
 
 ```text
 VisEditBench/
 ├── configs/                    # Model registry, prompts, request templates, TOML examples
+├── reproduction/               # Gold text, cohorts, anonymized ratings, archived scores and updates
 ├── editing/
 │   ├── batch_api/              # Batch API editing
 │   ├── vllm/                   # Local vLLM clients and container definition

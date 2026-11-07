@@ -1,0 +1,4 @@
+metric,source_column,alpha_ordinal,n_workers,n_items,non_missing_ratings
+IA,Answer.score_fidelity,0.8044935428199651,19,300,1350
+CP,Answer.score_locality,0.6665221037812433,19,300,1350
+DR,Answer.score_layout,0.648803191804062,19,300,1350

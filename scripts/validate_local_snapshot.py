@@ -31,6 +31,7 @@ def main() -> None:
     parser.add_argument("--snapshot", type=Path, required=True)
     parser.add_argument("--supplement", type=Path)
     args = parser.parse_args()
+    supplement = args.supplement or (ROOT / "reproduction" if (ROOT / "reproduction/manifest.json").is_file() else None)
     snapshot = args.snapshot.resolve()
     with tempfile.TemporaryDirectory(prefix="viseditbench-validation-") as temporary:
         sandbox = Path(temporary)
@@ -83,9 +84,9 @@ def main() -> None:
             run(root, "results.py", "--metadata", "runs/gemini31pro_visual/metadata.jsonl", "--scores", "runs/scores.csv", "--model", "gemini-3.1-pro-preview", "--output", "runs/summary.json")
             summary = json.loads((root / "runs/summary.json").read_text())
             assert summary["complete"] and summary["overall"]["n"] == 1 and summary["overall"]["FSR_count"] == 1
-            if args.supplement:
+            if supplement:
                 run(root, "dataset.py", "prepare", "--snapshot", str(snapshot), "--force")
-                run(root, "dataset.py", "supplement", "--source", str(args.supplement.resolve()))
+                run(root, "dataset.py", "supplement", "--source", str(supplement.resolve()))
                 run(root, "edit.py", "verbalize", "--models", "gemini-3.1-pro-preview", "--limit", "1", "--output", "runs/four_conditions")
                 for filename in json.loads((root / "runs/four_conditions/plan.json").read_text())["jobs"]:
                     job_path = Path(filename)
@@ -122,9 +123,9 @@ def main() -> None:
             "edit_type": dict(Counter(row["edit_type"] for row in full_rows)),
             "edit_operation": dict(Counter(str(row["edit_operation"]) for row in full_rows)),
             "base_snapshot_gold_text_samples": manifest["text_instructions_present"],
-            "prepared_supplement_gold_text_samples": json.loads((root / "data/dataset_manifest.json").read_text())["text_instructions_present"] if args.supplement else 0,
+            "prepared_supplement_gold_text_samples": json.loads((root / "data/dataset_manifest.json").read_text())["text_instructions_present"] if supplement else 0,
             "cli_smoke_test": "passed (1 sample, mocked generation and judge, network blocked)",
-            "four_condition_and_archived_analysis": "passed" if args.supplement else "not requested"}, indent=2))
+            "four_condition_and_archived_analysis": "passed" if supplement else "not requested"}, indent=2))
 
 
 if __name__ == "__main__":

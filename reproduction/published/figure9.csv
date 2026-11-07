@@ -1,0 +1,65 @@
+series,model,label,source,condition,N,FSR_percent
+new::gemini-3.1-pro-preview,gemini-3.1-pro-preview,Gemini 3.1 Pro,new_figure7_cohort,direct,100,87
+new::gemini-3.1-pro-preview,gemini-3.1-pro-preview,Gemini 3.1 Pro,new_figure7_cohort,verbalize_first,100,88
+new::gemini-3.1-pro-preview,gemini-3.1-pro-preview,Gemini 3.1 Pro,new_figure7_cohort,gold_text,100,89
+new::gemini-3.1-pro-preview,gemini-3.1-pro-preview,Gemini 3.1 Pro,new_figure7_cohort,gold_text_visual,100,86
+new::gemini-3-flash-preview,gemini-3-flash-preview,Gemini 3 Flash,new_figure7_cohort,direct,100,79
+new::gemini-3-flash-preview,gemini-3-flash-preview,Gemini 3 Flash,new_figure7_cohort,verbalize_first,100,89
+new::gemini-3-flash-preview,gemini-3-flash-preview,Gemini 3 Flash,new_figure7_cohort,gold_text,100,82
+new::gemini-3-flash-preview,gemini-3-flash-preview,Gemini 3 Flash,new_figure7_cohort,gold_text_visual,100,89
+new::claude-opus-4-6,claude-opus-4-6,Claude Opus 4.6,new_figure7_cohort,direct,100,62
+new::claude-opus-4-6,claude-opus-4-6,Claude Opus 4.6,new_figure7_cohort,verbalize_first,100,73
+new::claude-opus-4-6,claude-opus-4-6,Claude Opus 4.6,new_figure7_cohort,gold_text,100,82
+new::claude-opus-4-6,claude-opus-4-6,Claude Opus 4.6,new_figure7_cohort,gold_text_visual,100,80
+original::qwen3.5-35b-a3b,qwen3.5-35b-a3b,Qwen3.5-35B-A3B Thinking,original_figure40,direct,100,60
+original::qwen3.5-35b-a3b,qwen3.5-35b-a3b,Qwen3.5-35B-A3B Thinking,original_figure40,verbalize_first,100,59
+original::qwen3.5-35b-a3b,qwen3.5-35b-a3b,Qwen3.5-35B-A3B Thinking,original_figure40,gold_text,100,63
+original::qwen3.5-35b-a3b,qwen3.5-35b-a3b,Qwen3.5-35B-A3B Thinking,original_figure40,gold_text_visual,100,59
+new::gpt-5.4,gpt-5.4,GPT-5.4,new_figure7_cohort,direct,100,52
+new::gpt-5.4,gpt-5.4,GPT-5.4,new_figure7_cohort,verbalize_first,100,64
+new::gpt-5.4,gpt-5.4,GPT-5.4,new_figure7_cohort,gold_text,100,65
+new::gpt-5.4,gpt-5.4,GPT-5.4,new_figure7_cohort,gold_text_visual,100,72
+new::qwen3.5-397b-a17b-nothink,qwen3.5-397b-a17b-nothink,Qwen3.5-397B-A17B,new_figure7_cohort,direct,100,47
+new::qwen3.5-397b-a17b-nothink,qwen3.5-397b-a17b-nothink,Qwen3.5-397B-A17B,new_figure7_cohort,verbalize_first,100,57
+new::qwen3.5-397b-a17b-nothink,qwen3.5-397b-a17b-nothink,Qwen3.5-397B-A17B,new_figure7_cohort,gold_text,100,63
+new::qwen3.5-397b-a17b-nothink,qwen3.5-397b-a17b-nothink,Qwen3.5-397B-A17B,new_figure7_cohort,gold_text_visual,100,66
+new::claude-sonnet-4-5,claude-sonnet-4-5,Claude Sonnet 4.5,new_figure7_cohort,direct,100,47
+new::claude-sonnet-4-5,claude-sonnet-4-5,Claude Sonnet 4.5,new_figure7_cohort,verbalize_first,100,65
+new::claude-sonnet-4-5,claude-sonnet-4-5,Claude Sonnet 4.5,new_figure7_cohort,gold_text,100,79
+new::claude-sonnet-4-5,claude-sonnet-4-5,Claude Sonnet 4.5,new_figure7_cohort,gold_text_visual,100,75
+original::gemma4-31b-it,gemma4-31b-it,Gemma-4-31B-IT,original_figure40,direct,100,42
+original::gemma4-31b-it,gemma4-31b-it,Gemma-4-31B-IT,original_figure40,verbalize_first,100,47
+original::gemma4-31b-it,gemma4-31b-it,Gemma-4-31B-IT,original_figure40,gold_text,100,48
+original::gemma4-31b-it,gemma4-31b-it,Gemma-4-31B-IT,original_figure40,gold_text_visual,100,52
+new::qwen3.5-35b-a3b-nothink,qwen3.5-35b-a3b-nothink,Qwen3.5-35B-A3B,new_figure7_cohort,direct,100,38
+new::qwen3.5-35b-a3b-nothink,qwen3.5-35b-a3b-nothink,Qwen3.5-35B-A3B,new_figure7_cohort,verbalize_first,100,50
+new::qwen3.5-35b-a3b-nothink,qwen3.5-35b-a3b-nothink,Qwen3.5-35B-A3B,new_figure7_cohort,gold_text,100,51
+new::qwen3.5-35b-a3b-nothink,qwen3.5-35b-a3b-nothink,Qwen3.5-35B-A3B,new_figure7_cohort,gold_text_visual,100,57
+original::qwen3.5-4b,qwen3.5-4b,Qwen3.5-4B Thinking,original_figure40,direct,100,35
+original::qwen3.5-4b,qwen3.5-4b,Qwen3.5-4B Thinking,original_figure40,verbalize_first,100,38
+original::qwen3.5-4b,qwen3.5-4b,Qwen3.5-4B Thinking,original_figure40,gold_text,100,39
+original::qwen3.5-4b,qwen3.5-4b,Qwen3.5-4B Thinking,original_figure40,gold_text_visual,100,40
+new::claude-haiku-4-5,claude-haiku-4-5,Claude Haiku 4.5,new_figure7_cohort,direct,100,31
+new::claude-haiku-4-5,claude-haiku-4-5,Claude Haiku 4.5,new_figure7_cohort,verbalize_first,100,48
+new::claude-haiku-4-5,claude-haiku-4-5,Claude Haiku 4.5,new_figure7_cohort,gold_text,100,64
+new::claude-haiku-4-5,claude-haiku-4-5,Claude Haiku 4.5,new_figure7_cohort,gold_text_visual,100,61
+new::gpt-5.4-mini,gpt-5.4-mini,GPT-5.4-mini,new_figure7_cohort,direct,100,18
+new::gpt-5.4-mini,gpt-5.4-mini,GPT-5.4-mini,new_figure7_cohort,verbalize_first,100,38
+new::gpt-5.4-mini,gpt-5.4-mini,GPT-5.4-mini,new_figure7_cohort,gold_text,100,47
+new::gpt-5.4-mini,gpt-5.4-mini,GPT-5.4-mini,new_figure7_cohort,gold_text_visual,100,51
+new::qwen3.5-9b-nothink,qwen3.5-9b-nothink,Qwen3.5-9B,new_figure7_cohort,direct,100,14
+new::qwen3.5-9b-nothink,qwen3.5-9b-nothink,Qwen3.5-9B,new_figure7_cohort,verbalize_first,100,20
+new::qwen3.5-9b-nothink,qwen3.5-9b-nothink,Qwen3.5-9B,new_figure7_cohort,gold_text,100,30
+new::qwen3.5-9b-nothink,qwen3.5-9b-nothink,Qwen3.5-9B,new_figure7_cohort,gold_text_visual,100,27
+new::qwen3.5-4b-nothink,qwen3.5-4b-nothink,Qwen3.5-4B,new_figure7_cohort,direct,100,11
+new::qwen3.5-4b-nothink,qwen3.5-4b-nothink,Qwen3.5-4B,new_figure7_cohort,verbalize_first,100,22
+new::qwen3.5-4b-nothink,qwen3.5-4b-nothink,Qwen3.5-4B,new_figure7_cohort,gold_text,100,22
+new::qwen3.5-4b-nothink,qwen3.5-4b-nothink,Qwen3.5-4B,new_figure7_cohort,gold_text_visual,100,23
+new::gpt-5.4-nano,gpt-5.4-nano,GPT-5.4-nano,new_figure7_cohort,direct,100,7
+new::gpt-5.4-nano,gpt-5.4-nano,GPT-5.4-nano,new_figure7_cohort,verbalize_first,100,8
+new::gpt-5.4-nano,gpt-5.4-nano,GPT-5.4-nano,new_figure7_cohort,gold_text,100,42
+new::gpt-5.4-nano,gpt-5.4-nano,GPT-5.4-nano,new_figure7_cohort,gold_text_visual,100,34
+original::gemma4-e4b-it,gemma4-e4b-it,Gemma-4-E4B-IT,original_figure40,direct,100,2
+original::gemma4-e4b-it,gemma4-e4b-it,Gemma-4-E4B-IT,original_figure40,verbalize_first,100,7
+original::gemma4-e4b-it,gemma4-e4b-it,Gemma-4-E4B-IT,original_figure40,gold_text,100,15
+original::gemma4-e4b-it,gemma4-e4b-it,Gemma-4-E4B-IT,original_figure40,gold_text_visual,100,15

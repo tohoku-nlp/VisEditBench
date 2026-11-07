@@ -1,0 +1,9 @@
+level,metric,label,n_models,spearman_rho,kendall_tau_b,claude_tie_excess,gemini_tie_excess,normalization,note
+image,IA,指示遵守,29,0.9743842364532018,0.8866995073891624,0,0,round_12_decimals,
+image,CP,内容保持,29,0.9757359354710753,0.8853274301168478,0,1,round_12_decimals,
+image,DR,図の可読性,29,0.9855893657712127,0.9346492925189006,1,0,round_12_decimals,
+image,FSR,満点率,29,0.9823870009236679,0.9050561750776689,1,0,count_out_of_694,
+code,IA_code,指示遵守,29,0.9945812807881771,0.9655172413793102,0,0,round_12_decimals,
+code,CP_code,内容保持,29,0.9822660098522165,0.921182266009852,0,0,round_12_decimals,
+code,OES_code,編集全体の成功度,29,0.9945812807881771,0.9655172413793102,0,0,round_12_decimals,
+generation,CFR,コンパイル失敗率（両judge共通・参考）,29,1.0,1.0,10,10,count_out_of_694,judgeによらない生成側の共通値

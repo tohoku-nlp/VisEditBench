@@ -1,0 +1,7 @@
+model,display_name,n,FSR_count,FSR_percent,source
+gemini_3_1_pro_preview,Gemini 3.1 Pro,694,580,83.5734870317003,paper/table4/scores_latest/gemini_3_1_pro_preview.jsonl
+gemini_3_pro_image_preview,Gemini 3 Pro Image,694,422,60.80691642651297,paper/table4/scores_latest/gemini_3_pro_image_preview.jsonl
+gpt_5_4,GPT-5.4,694,328,47.262247838616716,paper/table4/scores_latest/gpt_5_4.jsonl
+gpt_image_1_5,GPT Image 1.5,694,83,11.959654178674352,paper/table4/scores_latest/gpt_image_1_5.jsonl
+qwen3_vl_30b_a3b_instruct,Qwen3-VL-30B-A3B,694,130,18.73198847262248,paper/table4/scores_latest/qwen3_vl_30b_a3b_instruct.jsonl
+qwen_image_edit_2511,Qwen-Image-Edit,694,1,0.1440922190201729,paper/table4/scores_latest/qwen_image_edit_2511.jsonl

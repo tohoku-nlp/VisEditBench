@@ -1,0 +1,107 @@
+{
+  "figure4": {
+    "available": true,
+    "file": "published/figure4.csv",
+    "kind": "figure",
+    "description": "One-operation edit-type heatmap",
+    "source": "paper/figure4_fsr_heatmap_20261020/figure4_values.csv",
+    "source_sha256": "c13aa94efb8eaa9ef2b910750cb98e0798554249b722f77152a8bf0b9da6de9a",
+    "transformation": "Cell values unchanged; sorted by the adopted overall-FSR ranking"
+  },
+  "figure5": {
+    "available": true,
+    "file": "published/figure5.csv",
+    "kind": "figure",
+    "description": "FSR by operation count",
+    "source": "paper/figure5_operation_count_20261020/figure5_values_sorted_overall_fsr.csv",
+    "source_sha256": "b15c0f3afa28c4c0793a977e4b1084104a6e3ce5bb452d5446f130338d93dd12"
+  },
+  "figure6": {
+    "available": true,
+    "file": "published/figure6.csv",
+    "kind": "figure",
+    "description": "Input modality; original denominators retained",
+    "source": "paper/figures5_9_large_text_20261028/figure6_values.csv",
+    "source_sha256": "b46a9503c4b23bbd90a040b055b3785ac73ef4137edc4e5680d6914e6e1a0011"
+  },
+  "figure7": {
+    "available": true,
+    "file": "published/figure7.csv",
+    "kind": "figure",
+    "description": "Text/visual comparison",
+    "source": "paper/figure7_text_visual_20261020/figure7_values_sorted_overall_fsr.csv",
+    "source_sha256": "8db29ae511ea969bb8a612651de4bf3ae3c415d53dc5df447336b5c0dacadd2e"
+  },
+  "figure8": {
+    "available": true,
+    "file": "published/figure8.csv",
+    "kind": "figure",
+    "description": "Code/direct-image comparison",
+    "source": "paper/figures5_9_large_text_20261028/figure8_values.csv",
+    "source_sha256": "6eca7d14cc505911ea5ced51261429cfb5526bfd9b015238d94f5c3ea1d4d585"
+  },
+  "figure9": {
+    "available": true,
+    "file": "published/figure9.csv",
+    "kind": "figure",
+    "description": "16 configurations x 4 conditions, each 100 examples",
+    "source": "paper/figure40_no_qwen3vl_20261024/values.csv",
+    "source_sha256": "ba708355a59edc0a5db082ed5fb4e655668dcc0a162b2a395f38d5e256842fea"
+  },
+  "table1_image_correlation": {
+    "available": true,
+    "file": "published/table1_image_correlation.csv",
+    "kind": "table",
+    "description": "Human/image-judge correlations",
+    "source": "paper/ablation_human_vs_auto/human_vs_auto_mainv2_correlations.csv",
+    "source_sha256": "8ff0e8c0e7813fe02605f7edeb1b1dd1e37fb9a55efc787faa339446f6abf334"
+  },
+  "table2_main": {
+    "available": true,
+    "file": "published/table2_main.csv",
+    "kind": "table",
+    "description": "Existing 29-model main table, source version retained",
+    "source": "paper/ablation_gemini_judge_bias/gemini_judge_table2_recomputed.csv",
+    "source_sha256": "a1b7049853527bb8e45517fa24087b8c8cf8f0938250b2b41de3b8df781a8a73"
+  },
+  "table3_code_correlation": {
+    "available": true,
+    "file": "published/table3_code_correlation.csv",
+    "kind": "table",
+    "description": "Human/code-judge correlations",
+    "source": "paper/ablation_human_vs_auto/human_vs_evaluation_code_mainv2_correlations.csv",
+    "source_sha256": "dadad6c2b7f1647dddb83f3e8fefabc14b45a177299ab8b6b99c464227784a38"
+  },
+  "table5_alternative_judge": {
+    "available": true,
+    "file": "published/table5_alternative_judge.csv",
+    "kind": "table",
+    "description": "Alternative judge, 29 models",
+    "source": "paper/ablation_gemini_judge_bias/claude_opus_judge_table2.csv",
+    "source_sha256": "ac7e4515066dd3632f919cef5e788e01d295f81bb561dcb8288366da72f33b49"
+  },
+  "table6_judge_ranks": {
+    "available": true,
+    "file": "published/table6_judge_ranks.csv",
+    "kind": "table",
+    "description": "Judge rank correlation",
+    "source": "paper/ablation_gemini_judge_bias/judge_rank_correlations_29models.csv",
+    "source_sha256": "6916f6bab8f2b9335a985732477c53501d89a95df8d1befbf76984e1db75243b"
+  },
+  "human_agreement_reference": {
+    "available": true,
+    "file": "published/human_agreement_reference.csv",
+    "kind": "table",
+    "description": "Existing human agreement summary",
+    "source": "paper/human_evaluation/analysis_outputs/krippendorff_alpha_ordinal_excluded4workers_new.csv",
+    "source_sha256": "f2e29f8ee016a3b80555bac0bc10e86844f0dada3f0f73ee8c8621304770c8c1"
+  },
+  "table4_standard_deviation": {
+    "available": true,
+    "file": "published/table4_standard_deviation.txt",
+    "kind": "text_table",
+    "description": "Sample standard deviations",
+    "source": "paper/table3/modelwise_scores_std_table.txt",
+    "source_sha256": "0eb7fb3d3270cca9bb20c54c0bcd16fccea760e5d35204de6b5209df715fa673"
+  }
+}

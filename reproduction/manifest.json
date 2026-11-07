@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "base_dataset": "tohoku-nlp/VisEditBench",
+  "base_metadata_sha256": "62e4fe9ca1089d3ec5874170dc7b038236bc072a1e542c75164230b393f43f65",
+  "samples": 694,
+  "gold_text_samples": 694,
+  "published_assets": {
+    "figure4": {
+      "available": true,
+      "file": "published/figure4.csv",
+      "kind": "figure",
+      "description": "One-operation edit-type heatmap",
+      "source": "paper/figure4_fsr_heatmap_20261020/figure4_values.csv",
+      "source_sha256": "c13aa94efb8eaa9ef2b910750cb98e0798554249b722f77152a8bf0b9da6de9a",
+      "transformation": "Cell values unchanged; sorted by the adopted overall-FSR ranking"
+    },
+    "figure5": {
+      "available": true,
+      "file": "published/figure5.csv",
+      "kind": "figure",
+      "description": "FSR by operation count",
+      "source": "paper/figure5_operation_count_20261020/figure5_values_sorted_overall_fsr.csv",
+      "source_sha256": "b15c0f3afa28c4c0793a977e4b1084104a6e3ce5bb452d5446f130338d93dd12"
+    },
+    "figure6": {
+      "available": true,
+      "file": "published/figure6.csv",
+      "kind": "figure",
+      "description": "Input modality; original denominators retained",
+      "source": "paper/figures5_9_large_text_20261028/figure6_values.csv",
+      "source_sha256": "b46a9503c4b23bbd90a040b055b3785ac73ef4137edc4e5680d6914e6e1a0011"
+    },
+    "figure7": {
+      "available": true,
+      "file": "published/figure7.csv",
+      "kind": "figure",
+      "description": "Text/visual comparison",
+      "source": "paper/figure7_text_visual_20261020/figure7_values_sorted_overall_fsr.csv",
+      "source_sha256": "8db29ae511ea969bb8a612651de4bf3ae3c415d53dc5df447336b5c0dacadd2e"
+    },
+    "figure8": {
+      "available": true,
+      "file": "published/figure8.csv",
+      "kind": "figure",
+      "description": "Code/direct-image comparison",
+      "source": "paper/figures5_9_large_text_20261028/figure8_values.csv",
+      "source_sha256": "6eca7d14cc505911ea5ced51261429cfb5526bfd9b015238d94f5c3ea1d4d585"
+    },
+    "figure9": {
+      "available": true,
+      "file": "published/figure9.csv",
+      "kind": "figure",
+      "description": "16 configurations x 4 conditions, each 100 examples",
+      "source": "paper/figure40_no_qwen3vl_20261024/values.csv",
+      "source_sha256": "ba708355a59edc0a5db082ed5fb4e655668dcc0a162b2a395f38d5e256842fea"
+    },
+    "table1_image_correlation": {
+      "available": true,
+      "file": "published/table1_image_correlation.csv",
+      "kind": "table",
+      "description": "Human/image-judge correlations",
+      "source": "paper/ablation_human_vs_auto/human_vs_auto_mainv2_correlations.csv",
+      "source_sha256": "8ff0e8c0e7813fe02605f7edeb1b1dd1e37fb9a55efc787faa339446f6abf334"
+    },
+    "table2_main": {
+      "available": true,
+      "file": "published/table2_main.csv",
+      "kind": "table",
+      "description": "Existing 29-model main table, source version retained",
+      "source": "paper/ablation_gemini_judge_bias/gemini_judge_table2_recomputed.csv",
+      "source_sha256": "a1b7049853527bb8e45517fa24087b8c8cf8f0938250b2b41de3b8df781a8a73"
+    },
+    "table3_code_correlation": {
+      "available": true,
+      "file": "published/table3_code_correlation.csv",
+      "kind": "table",
+      "description": "Human/code-judge correlations",
+      "source": "paper/ablation_human_vs_auto/human_vs_evaluation_code_mainv2_correlations.csv",
+      "source_sha256": "dadad6c2b7f1647dddb83f3e8fefabc14b45a177299ab8b6b99c464227784a38"
+    },
+    "table5_alternative_judge": {
+      "available": true,
+      "file": "published/table5_alternative_judge.csv",
+      "kind": "table",
+      "description": "Alternative judge, 29 models",
+      "source": "paper/ablation_gemini_judge_bias/claude_opus_judge_table2.csv",
+      "source_sha256": "ac7e4515066dd3632f919cef5e788e01d295f81bb561dcb8288366da72f33b49"
+    },
+    "table6_judge_ranks": {
+      "available": true,
+      "file": "published/table6_judge_ranks.csv",
+      "kind": "table",
+      "description": "Judge rank correlation",
+      "source": "paper/ablation_gemini_judge_bias/judge_rank_correlations_29models.csv",
+      "source_sha256": "6916f6bab8f2b9335a985732477c53501d89a95df8d1befbf76984e1db75243b"
+    },
+    "human_agreement_reference": {
+      "available": true,
+      "file": "published/human_agreement_reference.csv",
+      "kind": "table",
+      "description": "Existing human agreement summary",
+      "source": "paper/human_evaluation/analysis_outputs/krippendorff_alpha_ordinal_excluded4workers_new.csv",
+      "source_sha256": "f2e29f8ee016a3b80555bac0bc10e86844f0dada3f0f73ee8c8621304770c8c1"
+    },
+    "table4_standard_deviation": {
+      "available": true,
+      "file": "published/table4_standard_deviation.txt",
+      "kind": "text_table",
+      "description": "Sample standard deviations",
+      "source": "paper/table3/modelwise_scores_std_table.txt",
+      "source_sha256": "0eb7fb3d3270cca9bb20c54c0bcd16fccea760e5d35204de6b5209df715fa673"
+    }
+  },
+  "coverage_gaps": [],
+  "files_sha256": {
+    "README.md": "b53e31bb586b64ebd7977ca52f64045f25b673211d6bff549ea212dbc47f6e1e",
+    "cases/figure22_layout/generated_visual.png": "2c6c716be38e1226fe754e353f908deb31a32cab94da8b4fefa5cf1605288adc",
+    "cases/figure22_layout/generated_visual.tex": "263578938cc858fb1376a614b237c94f9d499c3b0f6ab7981ea2ff70c122d664",
+    "cases/figure22_layout/original.png": "0edbaafce79b6d1f1ac3dafd829164244acbc71196cbca86755802f01bcc8eb7",
+    "cases/figure22_layout/original.tex": "9c718cab1280aca3105d109da3b73e26aa93be2857f5df44e9b1f8e1af58cf79",
+    "cases/figure22_layout/reference.tex": "87ac5ffc70292b56058ce001c687353ec36e66793913d5a3a6f9e11658b9b190",
+    "cases/figure22_layout/visual_instruction.png": "37036987a1d8b28db37b4b97d4845e9a2cc7912362b496eb2d715d3be7a6eff8",
+    "cases/index.json": "820a85d34048253861e560a3e9a65445e6fd68afa358928e5003cedbd067d28c",
+    "cases/structure_wrong_destination_opus46_00004572/generated_visual.png": "1dc0b3b795591391a32f7332a47f9cf41b43726f0aa73a201c3ae0e5132123b7",
+    "cases/structure_wrong_destination_opus46_00004572/generated_visual.tex": "e523db1f539385020fef3c1101f313497d0df3c0ac2e63e7d8ac14f530a02dc0",
+    "cases/structure_wrong_destination_opus46_00004572/original.png": "a155f5d2f82a06687d925734df0b6b40a6df093c666336bbb291176572d87206",
+    "cases/structure_wrong_destination_opus46_00004572/original.tex": "1cf9bcd7fa456ccf221acd5ea536f405c247e495631071df4b457f90a2b316c3",
+    "cases/structure_wrong_destination_opus46_00004572/reference.tex": "601d86e2ea6edcdc80a1d4615e2e8a6dda7bb60116097af8680865681bcdb198",
+    "cases/structure_wrong_destination_opus46_00004572/visual_instruction.png": "e2fb106a350483cc9037a1db1fc776fca2c6a8111ef526b1a4b3cf70bd19991c",
+    "catalog.json": "65a90093c9426f6d0075dd43fd546b6220fa135dd24901492454aae429f3eee2",
+    "cohorts.json": "89f786dd8b1e049aa7612a58c0e6adc6aeaf9d4dd0a56f49297e956952ea352b",
+    "dataset_construction.json": "af5f6b969485d0e34b31994d9a11e97ba36177c8e627304a8b3d8fab5d504c1b",
+    "gold_text.jsonl": "51a3f4940ff52f5d490d01753f4f9d6c8ce1612744e41502823a94b755c2290b",
+    "human/code_judges.jsonl": "24050ec69fd52bd746d8474c3c9f3a5ff209a28bf677fa6646e71cbbb6d14d1b",
+    "human/image_judges.jsonl": "179c7457ed69440b0a2e3fbfd64fe3c9bc2ac102c371bc8fef2f17d3aa80b7e9",
+    "human/ratings.jsonl": "7589b8f93015b9ad0c369ccd28db73163cec187a3d36879e77acefc731e18915",
+    "provenance.json": "4f23a7744ac77d061822bf6c19045c5368d66a8ad69a1b16c6fc5550e686e26e",
+    "published/figure4.csv": "6c8157112bf88e76daca1fb291dd12d784209cc2dc376e69b21933a555bfc484",
+    "published/figure5.csv": "b15c0f3afa28c4c0793a977e4b1084104a6e3ce5bb452d5446f130338d93dd12",
+    "published/figure6.csv": "b46a9503c4b23bbd90a040b055b3785ac73ef4137edc4e5680d6914e6e1a0011",
+    "published/figure7.csv": "8db29ae511ea969bb8a612651de4bf3ae3c415d53dc5df447336b5c0dacadd2e",
+    "published/figure8.csv": "6eca7d14cc505911ea5ced51261429cfb5526bfd9b015238d94f5c3ea1d4d585",
+    "published/figure9.csv": "ba708355a59edc0a5db082ed5fb4e655668dcc0a162b2a395f38d5e256842fea",
+    "published/human_agreement_reference.csv": "f2e29f8ee016a3b80555bac0bc10e86844f0dada3f0f73ee8c8621304770c8c1",
+    "published/table1_image_correlation.csv": "8ff0e8c0e7813fe02605f7edeb1b1dd1e37fb9a55efc787faa339446f6abf334",
+    "published/table2_main.csv": "a1b7049853527bb8e45517fa24087b8c8cf8f0938250b2b41de3b8df781a8a73",
+    "published/table3_code_correlation.csv": "dadad6c2b7f1647dddb83f3e8fefabc14b45a177299ab8b6b99c464227784a38",
+    "published/table4_standard_deviation.txt": "0eb7fb3d3270cca9bb20c54c0bcd16fccea760e5d35204de6b5209df715fa673",
+    "published/table5_alternative_judge.csv": "ac7e4515066dd3632f919cef5e788e01d295f81bb561dcb8288366da72f33b49",
+    "published/table6_judge_ranks.csv": "6916f6bab8f2b9335a985732477c53501d89a95df8d1befbf76984e1db75243b",
+    "scores/figure9.jsonl": "a8c6766218e292e7567df4abe452fa5e88e05b3ad4fa4bbfd37f68808a6eb688",
+    "scores/main_code.jsonl": "bc4c635aa0267b85a2a72d9d7f05f70aa803fe73b3aa926ece4c6094e798ae48",
+    "scores/main_code_coverage.json": "549abc81e863f7325aaece98711d1bdf947ce0c670b86850ca1c96d709df834d",
+    "scores/main_image.jsonl": "59edad57e25cc39682c7f4a057f428b69bff85627a9d28ece74b6adadd415fe9",
+    "scores/recent_qwen35_image.jsonl": "70d8c31e090a62e15f67ce543436addaf75c9b67f53e9f5ca2aa386a1b893d7d",
+    "updates/20261107/claude_qwen35_scores.csv": "6553ef9560f9ea61a52bc5c00bb2b67695d7ddf1b5c43e2f1ecb8308ed98efb1",
+    "updates/20261107/claude_qwen35_summary.csv": "6beaf7373700b6e06bb0ce1128ae1991fa1a235d666dda054c794f8c9dfa25e4",
+    "updates/20261107/table2_corrected_printed.csv": "49eee1cbcd2cdaa2ac2db6b45b051724f0a5bff40f92e57df1550c824d6ef60e",
+    "updates/20261107/table5_changes.csv": "b7430ea063199ec15767b1811caf81d731c2dbe34b9f4d79cca0de488a770832",
+    "updates/20261107/table5_replacement_full_precision.csv": "f93c6d16001a5fdf626f30e44304aecb421414207a0a14e3a18636e0d2c755f5",
+    "updates/20261107/table5_replacement_rows.tex": "b1b77209c3e392aaeeb77c30aaf1a2160888b49115bbfd8a837b70ed6cf87980",
+    "updates/20261107/table5_updated_printed.csv": "8a4d23caa1acc28fe85abc51569a907435151b0c4b453e9f62a256ea72921d1f",
+    "updates/20261107/table6.tex": "8437d4083cf87e9c4f6aca2acfd54b9787b84d776306866e9df3d420acf37052",
+    "updates/20261107/table6_correlations.csv": "09fb52d24c8aa8bccbbe595793f1e47dcb881244294a8ed64c836887b7db8caf"
+  },
+  "base_benchmark_sha256": "cfdab1ae20f11f4dff8cc6c9a4b8f78b60c9a9afb233b7da67c323825bb95988",
+  "identity_schema": "IDs, uri, source/target TikZ, edit type/count, and SHA-256 of all three original PNGs; sorted by ID. License and JSON key/row ordering are excluded.",
+  "distribution": "Bundled with the public Git repository; no separate Hugging Face supplement upload is required.",
+  "release_date": "2026-11-07",
+  "stability_workflow": {
+    "command": "paper.py stability-prepare --generation-job <completed_job.json> --seed 42 --output runs/stability",
+    "examples": 50,
+    "repeats": 5,
+    "same_generated_images_in_all_repeats": true,
+    "historical_selection_claimed": false
+  },
+  "updates": {
+    "20261107": {
+      "description": "New Qwen3.5 nonthinking outputs evaluated by Claude Opus 4.6; corrected printed Table 2 (9B CP=2.736), updated Table 5 and recomputed Table 6. Earlier archived analyses retain their original source versions.",
+      "directory": "updates/20261107"
+    }
+  }
+}

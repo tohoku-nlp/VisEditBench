@@ -1,0 +1,27 @@
+model,display_name,condition,n,FSR_count,FSR_percent,previous_FSR_percent,delta_percentage_points,failure_as1,updated,source
+gemini_3_1_pro_preview,Gemini 3.1 Pro,visual,100,80,80.0,80.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+gemini_3_1_pro_preview,Gemini 3.1 Pro,text,100,82,82.0,82.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+gemini_3_flash_preview,Gemini 3 Flash,visual,100,70,70.0,70.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+gemini_3_flash_preview,Gemini 3 Flash,text,100,71,71.0,71.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+claude_opus_4_6,Claude Opus 4.6,visual,100,59,59.0,59.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+claude_opus_4_6,Claude Opus 4.6,text,100,76,76.0,76.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+gpt_5_4,GPT-5.4,visual,100,45,45.0,45.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+gpt_5_4,GPT-5.4,text,100,61,61.0,61.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+gemini_3_1_flash_lite_preview,Gemini 3.1 Flash Lite,visual,100,42,42.0,42.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+gemini_3_1_flash_lite_preview,Gemini 3.1 Flash Lite,text,100,54,54.0,54.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+claude_sonnet_4_5,Claude Sonnet 4.5,visual,100,39,39.0,39.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+claude_sonnet_4_5,Claude Sonnet 4.5,text,100,74,74.0,74.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+qwen3_5_397b,Qwen3.5-397B-A17B,visual,100,40,40.0,68.0,-28.0,2,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+qwen3_5_397b,Qwen3.5-397B-A17B,text,100,53,53.0,73.0,-20.0,1,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+qwen3_5_35b_a3b,Qwen3.5-35B-A3B,visual,100,34,34.0,51.0,-17.0,1,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+qwen3_5_35b_a3b,Qwen3.5-35B-A3B,text,100,44,44.0,57.99999999999999,-13.999999999999993,0,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+claude_haiku_4_5,Claude Haiku 4.5,visual,100,27,27.0,27.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+claude_haiku_4_5,Claude Haiku 4.5,text,100,57,57.0,56.99999999999999,7.105427357601002e-15,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+gpt_5_4_mini,GPT-5.4-mini,visual,100,14,14.0,14.000000000000002,-1.7763568394002505e-15,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+gpt_5_4_mini,GPT-5.4-mini,text,100,42,42.0,42.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv
+qwen3_5_9b,Qwen3.5-9B,visual,100,12,12.0,38.0,-26.0,9,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+qwen3_5_9b,Qwen3.5-9B,text,100,30,30.0,56.00000000000001,-26.000000000000007,3,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+qwen3_5_4b,Qwen3.5-4B,visual,100,9,9.0,27.0,-18.0,6,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+qwen3_5_4b,Qwen3.5-4B,text,100,21,21.0,34.0,-13.0,5,True,qwen35_nonthinking_text_visual100_20261019/evaluation/gemini31pro_text100/scores.csv
+gpt_5_4_nano,GPT-5.4-nano,visual,100,4,4.0,4.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_visual.csv
+gpt_5_4_nano,GPT-5.4-nano,text,100,37,37.0,37.0,0.0,,False,paper/ablation_text_instruction/analysis_outputs/ablation_text_instruction_modelwise_text.csv

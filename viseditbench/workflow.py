@@ -12,6 +12,7 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+import random
 import shlex
 import sys
 from typing import Any
@@ -195,8 +196,8 @@ def experiment_groups(name: str) -> list[dict]:
         groups += [dict(model=key, condition=condition, profile="legacy_verbalization", cohort="legacy_verbalization", modality="full")
             for key in ["qwen3.5-4b", "qwen3.5-35b-a3b", "gemma4-31b-it", "gemma4-e4b-it"] for condition in CONDITIONS]
     elif name == "stability":
-        return [{"stage": "judge_only", "cohort": "original_50_human_outputs", "repeats": 5,
-                 "command": "paper.py stability-prepare --selection <original_50_case_selection.jsonl> --output <run>"}]
+        return [{"stage": "judge_only", "cohort": "fixed_50_generated_outputs", "repeats": 5,
+                 "command": "paper.py stability-prepare --generation-job <completed_main_job.json> --seed 42 --output <run>"}]
     else:
         raise ValueError(name)
     for group in groups:
@@ -221,7 +222,7 @@ def prepare_experiment(name: str, output: Path, data_dir: Path, *, models: list[
     if name == "alternative_judge":
         raise ValueError("Reuse each main job with judge-prepare --judge-model claude-opus-4-6; do not regenerate diagrams for judge comparison.")
     if name == "stability":
-        raise ValueError("Use stability-prepare with the original 50 generated outputs; do not generate new diagrams for this study.")
+        raise ValueError("Use stability-prepare --generation-job with completed outputs, or --selection with recorded outputs; the same images are evaluated five times.")
     if limit is not None and limit < 1:
         raise ValueError("--limit must be positive")
     if (output / "plan.json").exists():
@@ -753,13 +754,44 @@ def retry_job(path: Path, *, stage: str = "generation") -> dict:
     return {"retry_job": str((target / "job.json").resolve()), "samples": len(failed)}
 
 
-def prepare_stability(selection: Path, output: Path, data_dir: Path) -> dict:
-    """元の50出力を無加工で読み込み、同一画像を5回採点するrunを準備する。"""
+def select_stability_outputs(generation_job: Path, *, seed: int = 42) -> list[dict]:
+    """完了済みrunの描画成功出力から、順序に依存せず固定seedで50件選ぶ。"""
+    job = checked_job(generation_job)
+    if job["stage"] != "generation":
+        raise ValueError("Pass a completed generation job, not a judge job")
+    folder = generation_job.parent
+    statuses = read_jsonl(folder / "render_status.jsonl")
+    index = {row["key"]: row for row in read_jsonl(folder / "metadata.jsonl")}
+    if len(statuses) != len({row["key"] for row in statuses}) or {row["key"] for row in statuses} != set(job["expected_keys"]):
+        raise ValueError("Render status must cover every expected generation exactly once")
+    candidates = []
+    for status in statuses:
+        key = status["key"]
+        result = folder / "results" / (key + ".json")
+        if not result.is_file() or read_json(result).get("status") == "api_error":
+            raise ValueError(f"Finish or retry generation before selecting stability outputs: {key}")
+        if status["status"] == "ready":
+            image = Path(status["image"])
+            if not image.is_file():
+                raise FileNotFoundError(image)
+            candidates.append({"question_id": key, "source_key": index[key].get("source_key", key),
+                               "generated_model": job["model"], "edited_image_path": str(image.resolve())})
+    if len(candidates) < 50:
+        raise ValueError("Stability evaluation requires at least 50 rendered outputs")
+    return sorted(random.Random(seed).sample(sorted(candidates, key=lambda row: row["question_id"]), 50),
+                  key=lambda row: row["question_id"])
+
+
+def prepare_stability(selection: Path | None, output: Path, data_dir: Path, *,
+                      generation_job: Path | None = None, seed: int = 42) -> dict:
+    """公開データから得た固定50出力の同一画像を、生成し直さず5回採点する。"""
     import shutil
     from PIL import Image
-    selected = read_jsonl(selection)
+    if (selection is None) == (generation_job is None):
+        raise ValueError("Specify exactly one of --selection and --generation-job")
+    selected = read_jsonl(selection) if selection is not None else select_stability_outputs(generation_job, seed=seed)
     if len(selected) != 50 or len({row["question_id"] for row in selected}) != 50:
-        raise ValueError("Provide exactly 50 unique original human-evaluation outputs")
+        raise ValueError("Provide exactly 50 unique recorded generated outputs")
     if (output / "job.json").exists():
         raise FileExistsError("Stability run exists; use a new output directory")
     index = {row["key"]: row for row in read_jsonl(data_dir / "metadata/edit_metadata.jsonl")}
@@ -781,13 +813,19 @@ def prepare_stability(selection: Path, output: Path, data_dir: Path) -> dict:
         image = output / "images" / (key + ".png")
         image.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, image)
-        save_json(output / "results" / (key + ".json"), {"key": key, "status": "ok", "imported_original_output": True, "sha256": digest(image)})
-        statuses.append({"key": key, "status": "ready", "image": str(image.resolve()), "compiler_policy": "original_human_evaluation_output"})
+        save_json(output / "results" / (key + ".json"), {"key": key, "status": "ok", "imported_recorded_output": True, "sha256": digest(image)})
+        statuses.append({"key": key, "status": "ready", "image": str(image.resolve()), "compiler_policy": "recorded_output_no_recompilation"})
+    write_jsonl(output / "selection.jsonl", selected)
     write_jsonl(output / "metadata.jsonl", metadata)
     write_jsonl(output / "render_status.jsonl", statuses)
-    job = {"stage": "generation", "model": "mixed_original_human_outputs", "api_model": "archived", "provider": "archived",
-        "condition": "direct", "profile": "original_stability", "cohort": "original_50_human_outputs", "modality": "full",
-        "judge": "gemini-3.1-pro-preview", "chunks": [], "expected_keys": [r["key"] for r in metadata], "test_subset": False}
+    job = {"stage": "generation", "model": "fixed_generated_outputs", "api_model": "archived", "provider": "archived",
+        "condition": "direct", "profile": "stability", "cohort": "fixed_50_generated_outputs", "modality": "full",
+        "judge": "gemini-3.1-pro-preview", "chunks": [], "expected_keys": [r["key"] for r in metadata], "test_subset": False,
+        "metadata_sha256": digest(output / "metadata.jsonl"),
+        "input_files_sha256": {str((output / "images" / (row["key"] + ".png")).resolve()): digest(output / "images" / (row["key"] + ".png")) for row in metadata},
+        "selection_sha256": digest(output / "selection.jsonl"), "selection_seed": seed if generation_job else None,
+        "source_generation_job": str(generation_job.resolve()) if generation_job else None,
+        "historical_selection_claimed": False}
     save_json(output / "job.json", job)
     judges = prepare_judge(output / "job.json", repeats=5)
     return {"generation_job": str(output / "job.json"), "judge_jobs": judges, "n_examples": 50, "repeats": 5}
@@ -857,7 +895,10 @@ def main() -> None:
     command.add_argument("--data-dir", type=Path, default=Path("data"))
     command.add_argument("--output", type=Path, default=Path("runs/paper_reproduction"))
     command = commands.add_parser("stability-prepare")
-    command.add_argument("--selection", type=Path, required=True)
+    selection_source = command.add_mutually_exclusive_group(required=True)
+    selection_source.add_argument("--selection", type=Path)
+    selection_source.add_argument("--generation-job", type=Path)
+    command.add_argument("--seed", type=int, default=42)
     command.add_argument("--output", type=Path, required=True)
     command.add_argument("--data-dir", type=Path, default=Path("data"))
     command = commands.add_parser("stability-report")
@@ -896,7 +937,7 @@ def main() -> None:
         from .image_edit import run_images
         result = run_images(args.job, retry_failed=args.retry_failed)
     elif args.command == "stability-prepare":
-        result = prepare_stability(args.selection, args.output, args.data_dir)
+        result = prepare_stability(args.selection, args.output, args.data_dir, generation_job=args.generation_job, seed=args.seed)
     elif args.command == "stability-report":
         result = report_stability(args.run)
     elif args.command == "server-command":

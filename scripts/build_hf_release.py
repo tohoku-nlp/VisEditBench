@@ -15,7 +15,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from viseditbench.backends import backend
-from viseditbench.data import digest, read_jsonl, write_jsonl
+from viseditbench.data import benchmark_identity, digest, read_jsonl, write_jsonl
 from viseditbench.workflow import read_json, registry, save_json
 
 
@@ -211,29 +211,23 @@ def build(workspace: Path, output: Path, *, overwrite_unpublished: bool = False)
         cases.append(case)
     save_json(destination / "cases/index.json", cases)
     save_json(destination / "dataset_construction.json", {"generated_validated": 2819, "passed_validation": 2148,
-        "selected_for_visual_annotation": 750, "final_samples": 694, "source": "published manuscript construction statistics",
-        "raw_validation_labels_available": False})
+        "selected_for_visual_annotation": 750, "final_samples": 694, "source": "published manuscript construction statistics"})
     save_json(destination / "catalog.json", catalog)
     save_json(destination / "provenance.json", {"input_sources_sha256": origins,
         "human_export": "Filtered ratings only; worker IDs replaced with independent anonymous labels. No comments, names, HIT/assignment IDs, timestamps, payment details, or URLs exported.",
         "figure9": {"groups": 64, "scores": len(figure9), "models": 16, "N_per_condition": 100},
         "cohort_overlap_figure7_legacy": len(set(cohorts["figure7"]) & set(cohorts["legacy_verbalization"]))})
     manifest = {"schema_version": 1, "base_dataset": "tohoku-nlp/VisEditBench", "base_metadata_sha256": digest(workspace / "dataset/VisEditBench/dataset/metadata.jsonl"),
+        "base_benchmark_sha256": benchmark_identity(hf_metadata, metadata=workspace / "dataset/VisEditBench/dataset/metadata.jsonl", snapshot=workspace / "dataset/VisEditBench"),
         "samples": len(keys), "gold_text_samples": len(keys), "published_assets": catalog,
-        "coverage_gaps": [name for name, item in catalog.items() if not item["available"]] + ["original_50_case_five_repeat_stability_assets", "raw_dataset_validation_labels"],
+        "coverage_gaps": [name for name, item in catalog.items() if not item["available"]],
         "files_sha256": {str(path.relative_to(destination)): digest(path) for path in sorted(destination.rglob("*")) if path.is_file() and path != destination / "manifest.json"}}
     save_json(destination / "manifest.json", manifest)
     card = (workspace / "dataset/VisEditBench/README.md").read_text()
-    pieces = card.split("---", 2)
-    if len(pieces) != 3 or "configs:" in pieces[1]:
-        raise ValueError("Review the dataset card configuration before preparing the updated card")
-    # 再現用JSONLをbenchmarkの行へ混入させないよう、defaultの対象を明示する。
-    yaml = pieces[1].rstrip() + "\nconfigs:\n  - config_name: default\n    data_files:\n      - split: train\n        path: dataset/metadata.jsonl\n"
-    card = "---" + yaml + "---" + pieces[2]
-    card += "\n\n## Reproduction supplement\n\nThe `reproduction/` directory contains gold instructions, fixed ablation cohorts, anonymized human ratings, archived model judgments, and published figure/table inputs. It is separate from the 694 benchmark examples. The default dataset configuration selects only `dataset/metadata.jsonl`. Download the full snapshot with `huggingface_hub.snapshot_download` or the VisEditBench code's `dataset.py download` command to obtain the supplement.\n"
+    # データカードのsplit・画像設定・ユーザー指定の説明文を変更しない。
     (output / "README.md").write_text(card, encoding="utf-8")
-    (output / "UPLOAD.md").write_text("# Hugging Face追加公開用データ\n\n`reproduction/`と、defaultの対象を明示したREADME.mdを既存データセットへ追加します。コードのGitHubリポジトリには入れません。\n\n"
-        "```bash\nhf upload tohoku-nlp/VisEditBench ./reproduction reproduction --repo-type dataset\nhf upload tohoku-nlp/VisEditBench ./README.md README.md --repo-type dataset\n```\n\n"
+    (output / "UPLOAD.md").write_text("# Hugging Face追加公開用データ\n\n公開コードにもreproduction/を同梱しています。HFへの追加は任意です。データカードの差し替えは不要です。\n\n"
+        "```bash\nhf upload tohoku-nlp/VisEditBench ./reproduction reproduction --repo-type dataset\n```\n\n"
         "このコマンドはこのフォルダでユーザーが実行します。アップロード後のコミットを指定してコード側のdataset.py downloadを実行します。\n", encoding="utf-8")
     return {"output": str(output), "files": len(manifest["files_sha256"]), "gold_text": len(keys), "figure9_scores": len(figure9),
             "human_ratings": len(human), "main_image_scores": len(image_scores), "coverage_gaps": manifest["coverage_gaps"]}
